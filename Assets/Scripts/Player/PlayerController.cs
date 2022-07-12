@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private const float SPEED = 15;
+
     [SerializeField]
-    public Vector2 speed = new Vector2(20, 0);
+    public float speed = SPEED;
 
     [SerializeField]
     public float jumpHeight = 10;
@@ -29,7 +31,7 @@ public class PlayerController : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
-        move = new Vector3(speed.x * inputX, speed.y * inputY, 0);
+        move = new Vector3(speed * inputX, 0, 0);
 
         move *= Time.deltaTime;
 
@@ -44,7 +46,6 @@ public class PlayerController : MonoBehaviour
 
         if (body.velocity.y == 0 && Input.GetKeyDown(KeyCode.Space)) {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-            speed.x = 15;
         }
     }
 
