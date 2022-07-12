@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField]
-    public Vector2 speed = new Vector2(50, 0);
+    public Vector2 speed = new Vector2(20, 0);
 
     [SerializeField]
     public float jumpHeight = 10;
@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             jumping = true;
+            speed.x = 10;
         }
     }
 
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.tag == "Ground")
         {
              jumping = false;
+             speed.x = 20;
         }
     }
 
