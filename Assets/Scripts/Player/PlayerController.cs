@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float jumpHeight = 10;
 
+    public Vector3 move;
+
     private bool jumping;
     private Rigidbody2D body;
 
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(speed.x * inputX, speed.y * inputY, 0);
+        move = new Vector3(speed.x * inputX, speed.y * inputY, 0);
 
         move *= Time.deltaTime;
 
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
         {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             jumping = true;
-            speed.x = 10;
+            speed.x = 15;
         }
     }
 
@@ -50,8 +52,9 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.tag == "Ground")
         {
-             jumping = false;
-             speed.x = 20;
+            jumping = false;
+            speed.x = 20;
+            move = new Vector3(0, 0, 0);
         }
     }
 
