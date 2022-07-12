@@ -6,14 +6,14 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField]
-    private const float SPEED = 10;
+    private float speed = 10;
 
-    private float speed;
+    private float velocity;
 
     [SerializeField]
-    public float jumpHeight = 10;
+    public float jumpHeight = 15;
 
-    public Vector3 move;
+    private Vector3 move;
 
     private Rigidbody2D body;
 
@@ -29,12 +29,12 @@ public class PlayerController : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
 
         if (Input.GetKey(KeyCode.LeftShift)) {
-            speed = SPEED * 2;
+            velocity = speed * 2;
         } else {
-            speed = SPEED;
+            velocity = speed;
         }
 
-        move = new Vector3(speed * inputX, 0, 0);
+        move = new Vector3(velocity * inputX, 0, 0);
 
         move *= Time.deltaTime;
 
