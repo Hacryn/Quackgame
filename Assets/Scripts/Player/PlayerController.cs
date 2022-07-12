@@ -5,31 +5,34 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    private const float SPEED = 15;
-
     [SerializeField]
-    public float speed = SPEED;
+    private const float SPEED = 10;
+
+    private float speed;
 
     [SerializeField]
     public float jumpHeight = 10;
 
     public Vector3 move;
 
-    private bool jumping;
     private Rigidbody2D body;
 
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        jumping = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            speed = SPEED * 2;
+        } else {
+            speed = SPEED;
+        }
 
         move = new Vector3(speed * inputX, 0, 0);
 
