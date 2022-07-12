@@ -53,13 +53,13 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D (Collision2D col)
+    /*private void OnCollisionEnter2D (Collision2D col)
     {
         if (col.gameObject.tag == "Ground")
         {
             jumping = false;
             speed.x = 20;
         }
-    }
+    }*/
 
 }
