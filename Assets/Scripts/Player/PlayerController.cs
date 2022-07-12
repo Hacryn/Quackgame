@@ -35,10 +35,15 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(move);
 
-        if (Input.GetKeyDown(KeyCode.Space) && !jumping)
+        /*if (Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             jumping = true;
+            speed.x = 15;
+        }*/
+
+        if (body.velocity.y == 0 && Input.GetKeyDown(KeyCode.Space)) {
+            body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             speed.x = 15;
         }
     }
@@ -54,7 +59,6 @@ public class PlayerController : MonoBehaviour
         {
             jumping = false;
             speed.x = 20;
-            move = new Vector3(0, 0, 0);
         }
     }
 
