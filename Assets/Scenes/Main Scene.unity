@@ -182,6 +182,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palma
       objectReference: {fileID: 0}
+    - target: {fileID: 7061910224799416063, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061910224799416063, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
@@ -2530,6 +2538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1908923049}
   attackRange: 0.4
+  attackRate: 2
   basicEnemyLayers:
     serializedVersion: 2
     m_Bits: 0

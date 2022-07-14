@@ -17,16 +17,25 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D body;
 
+    private SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         float inputX = Input.GetAxis("Horizontal");
+
+        if (!sprite.flipX && inputX < 0) {
+            sprite.flipX = true;
+        } else if (sprite.flipX && inputX > 0) {
+            sprite.flipX = false;
+        }
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             velocity = speed * 2;
