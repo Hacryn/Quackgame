@@ -17,16 +17,30 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D body;
 
+    private SpriteRenderer sprite;
+
+    private bool faceLeft;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        faceLeft = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         float inputX = Input.GetAxis("Horizontal");
+
+        if (!faceLeft && inputX < 0) {
+            faceLeft = true;
+            FlipPlayer();
+        } else if (faceLeft && inputX > 0) {
+            faceLeft = false;
+            FlipPlayer();
+        }
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             velocity = speed * 2;
@@ -55,6 +69,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         
+    }
+
+    void FlipPlayer()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x = scale.x * -1;
+        transform.localScale = scale;
     }
 
     /*private void OnCollisionEnter2D (Collision2D col)
