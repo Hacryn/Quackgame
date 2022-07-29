@@ -8,11 +8,13 @@ public class PlayerCombat : MonoBehaviour
     
 
     public Transform attackPoint;
-    public float attackRange = 0.5f;
-    
-    public float attackRate = 2f;
-    private float nextAttackTime = 0;
+    public int baseAtkDamage=40;
 
+    
+    public float attackRange = 0.5f;
+    public float attackRate = 2f;
+
+    private float nextAttackTime = 0;
     public LayerMask basicEnemyLayers;
 
     // Update is called once per frame
@@ -45,7 +47,8 @@ public class PlayerCombat : MonoBehaviour
         //Damage enemy
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("go bananza, you hit " + enemy.name);
+            enemy.GetComponent<Enemy>().takeDamage(baseAtkDamage);
+            Debug.Log("you hit " + enemy.name);
         }
     }    
 }
