@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour
     
 
     public Transform attackPoint;
-    public int baseAtkDamage=40;
+    public int baseAtkDamage = 50;
 
     
     public float attackRange = 0.5f;
@@ -16,6 +16,10 @@ public class PlayerCombat : MonoBehaviour
 
     private float nextAttackTime = 0;
     public LayerMask basicEnemyLayers;
+
+    void Start() {
+        attackPoint = GameObject.Find("attackPoint").GetComponent<Transform>();
+    }
 
     // Update is called once per frame
     void Update()

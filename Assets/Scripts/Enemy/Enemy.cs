@@ -6,7 +6,9 @@ public class Enemy : MonoBehaviour
 {
 
     public int maxHealth = 100;
-    int currentHealth;
+
+    private int currentHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +23,12 @@ public class Enemy : MonoBehaviour
 
     public void takeDamage(int damage){
         currentHealth -= damage;
-        if (currentHealth <=0){
-            Die();
-        }
+        if (currentHealth <=0) Die();
     }
 
     void Die(){
         Debug.Log("Enemy Died");
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        gameObject.SetActive(false);
         //destroy element after death
     }
 }
