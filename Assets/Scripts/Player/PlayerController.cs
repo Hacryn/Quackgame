@@ -13,20 +13,37 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float jumpHeight = 15;
 
+    [SerializeField]
+    public float jumpingTollerance = 0.01f;
+
     private Vector3 move;
 
     private Rigidbody2D body;
+
+    private SpriteRenderer sprite;
+
+    private bool faceLeft;
 
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        faceLeft = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         float inputX = Input.GetAxis("Horizontal");
+
+        if (!faceLeft && inputX < 0) {
+            faceLeft = true;
+            FlipPlayer();
+        } else if (faceLeft && inputX > 0) {
+            faceLeft = false;
+            FlipPlayer();
+        }
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             velocity = speed * 2;
@@ -47,7 +64,7 @@ public class PlayerController : MonoBehaviour
             speed.x = 15;
         }*/
 
-        if (body.velocity.y == 0 && Input.GetKeyDown(KeyCode.Space)) {
+        if (IsNotJumping(jumpingTollerance) && Input.GetKeyDown(KeyCode.Space)) {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
     }
@@ -55,6 +72,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         
+    }
+
+    void FlipPlayer()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x = scale.x * -1;
+        transform.localScale = scale;
     }
 
     /*private void OnCollisionEnter2D (Collision2D col)
@@ -65,5 +89,9 @@ public class PlayerController : MonoBehaviour
             speed.x = 20;
         }
     }*/
+
+    private bool IsNotJumping(float tollerance) {
+        return body.velocity.y < tollerance && body.velocity.y > -tollerance;
+    }
 
 }
