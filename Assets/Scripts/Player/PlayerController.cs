@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float jumpHeight = 15;
 
+    [SerializeField]
+    public float jumpingTollerance = 0.01f;
+
     private Vector3 move;
 
     private Rigidbody2D body;
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
             speed.x = 15;
         }*/
 
-        if (body.velocity.y == 0 && Input.GetKeyDown(KeyCode.Space)) {
+        if (IsNotJumping(jumpingTollerance) && Input.GetKeyDown(KeyCode.Space)) {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
         }
     }
@@ -86,5 +89,9 @@ public class PlayerController : MonoBehaviour
             speed.x = 20;
         }
     }*/
+
+    private bool IsNotJumping(float tollerance) {
+        return body.velocity.y < tollerance && body.velocity.y > -tollerance;
+    }
 
 }
