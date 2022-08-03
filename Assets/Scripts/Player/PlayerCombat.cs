@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    //public Animator animation;
+    public Animator animator;
     
 
     public Transform attackPoint;
@@ -17,9 +17,7 @@ public class PlayerCombat : MonoBehaviour
     private float nextAttackTime = 0;
     public LayerMask basicEnemyLayers;
 
-    void Start() {
-        attackPoint = GameObject.Find("attackPoint").GetComponent<Transform>();
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -43,9 +41,10 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack(){
         //play attack animation
-        //animator.SetTrigger("Attack");
+        animator.SetTrigger("attack");
 
         //detectEnemiesInRange
+//        Collider2D[] hitEnemies = Physics2D.overlapSquareAll(attackPoint.position, attckPoint.;
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, basicEnemyLayers);
 
         //Damage enemy

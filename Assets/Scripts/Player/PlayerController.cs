@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float velocity;
 
     [SerializeField]
-    public float jumpHeight = 15;
+    public float jumpHeight = 1;
 
     [SerializeField]
     public float jumpingTollerance = 0.01f;
