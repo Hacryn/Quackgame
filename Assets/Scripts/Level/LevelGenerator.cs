@@ -8,7 +8,7 @@ public class LevelGenerator : MonoBehaviour
     public List<GameObject> tileList;
     public List<GameObject> endTiles;
 
-    public List<ContinuousTiles> continuousTiles;
+    public List<GameObject> continuousTiles;
     public int continuousTilesChance;
 
     public int minTiles;
@@ -45,9 +45,15 @@ public class LevelGenerator : MonoBehaviour
         
         pos = tileSize;
         while (pos < (length * tileSize)) {
-            if (rng.Next(0,100) < continuousTilesChance) {
+            if ((rng.Next(0,100) < continuousTilesChance) 
+                && (continuousTiles.Count > 0)
+                && (continuousTiles != null)) {
                 tile = rng.Next(0, continuousTiles.Count);
                 pos = CreateContinuousTiles(continuousTiles[tile], pos);
+                continuousTiles.RemoveAt(tile);
+
+                if (pos >= (length * tileSize)) length = pos / tileSize;
+
             } else {
                 tile = rng.Next(0, tileList.Count);
                 CreateTile(tileList[tile], pos);
@@ -62,8 +68,15 @@ public class LevelGenerator : MonoBehaviour
         CreateTile(endTiles[tile], length * tileSize);
     }
 
-    private int CreateContinuousTiles(ContinuousTiles tileset, int pos) 
+    private int CreateContinuousTiles(GameObject tilesObject, int pos) 
     {
+        ContinuousTiles tileset = tilesObject.GetComponent<ContinuousTiles>();
+        
+        tileset.SetUp();
+        while (!tileset.Ended()) {
+            CreateTile(tileset.NextTile(), pos);
+            pos += tileSize; 
+        }
         return pos;
     }
 
