@@ -46,13 +46,12 @@ public class LevelGenerator : MonoBehaviour
         pos = tileSize;
         while (pos < (length * tileSize)) {
             if ((rng.Next(0,100) < continuousTilesChance) 
-                && (continuousTiles.Count > 0)
-                && (continuousTiles != null)) {
+                && (continuousTiles.Count > 0)) {
                 tile = rng.Next(0, continuousTiles.Count);
                 pos = CreateContinuousTiles(continuousTiles[tile], pos);
                 continuousTiles.RemoveAt(tile);
 
-                if (pos >= (length * tileSize)) length = pos / tileSize;
+                if (pos > (length * tileSize)) length = pos / tileSize;
 
             } else {
                 tile = rng.Next(0, tileList.Count);
