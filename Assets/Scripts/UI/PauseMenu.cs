@@ -5,20 +5,41 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseButton;
-    public GameObject unPauseButton;
+
+    private bool isPaused = false;
+    void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            if(isPaused)
+            {
+                UnPauseGame();
+                isPaused = false;
+            } else
+            {
+                PauseGame();
+                isPaused = true;
+            }
+        }
+    }
 
     public void PauseGame()
     {
-        this.gameObject.SetActive(true);
+        foreach(Transform obj in transform)
+        {
+            obj.gameObject.SetActive(true);
+
+        }
         Time.timeScale = 0;
-        pauseButton.SetActive(false);
     }
 
     public void UnPauseGame()
     {
+        foreach (Transform obj in transform)
+        {
+            obj.gameObject.SetActive(false);
+
+        }
         Time.timeScale = 1;
-        pauseButton.SetActive(true);
-        this.gameObject.SetActive(false);
     }
 }
