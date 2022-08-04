@@ -83,6 +83,10 @@ public class LevelGenerator : MonoBehaviour
     {
         GameObject tileCreated;
         tileCreated = Instantiate(tile, new Vector3(pos, 0, 0), Quaternion.identity);
+        if (tileCreated.GetComponent<TileScript>() != null) {
+            tileCreated.GetComponent<TileScript>().Size = tileSize;
+            tileCreated.GetComponent<TileScript>().Position = pos;
+        }
         tileCreated.transform.parent = gameObject.transform;
     }
 
