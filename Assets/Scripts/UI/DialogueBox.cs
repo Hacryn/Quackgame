@@ -6,7 +6,12 @@ using TMPro;
 
 public class DialogueBox : MonoBehaviour
 {
-    public TextMeshProUGUI textScript;
+    private TextMeshProUGUI textScript;
+
+    private void Start()
+    {
+        textScript = GetComponentInChildren<TextMeshProUGUI>(true);
+    }
     public void DisplayDialogue(string msg, int duration)
     {
         foreach(Transform t in transform)
