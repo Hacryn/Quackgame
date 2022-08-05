@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 1268061247}
   - component: {fileID: 1268061246}
   - component: {fileID: 1268061245}
+  - component: {fileID: 1268061248}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -313,6 +314,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268061248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268061244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7847b7bbcd745b46aca9f50feac4cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377651963
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,10 +614,10 @@ GameObject:
   - component: {fileID: 1769156601}
   - component: {fileID: 1769156600}
   - component: {fileID: 1769156604}
-  - component: {fileID: 1769156605}
   - component: {fileID: 1769156607}
   - component: {fileID: 1769156606}
   - component: {fileID: 1769156608}
+  - component: {fileID: 1769156609}
   m_Layer: 0
   m_Name: Sinner
   m_TagString: Untagged
@@ -627,6 +640,8 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 15
   jumpingTollerance: 0.01
+  anim: {fileID: 1769156602}
+  rollPower: 8
 --- !u!50 &1769156601
 Rigidbody2D:
   serializedVersion: 4
@@ -720,26 +735,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1769156605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769156599}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e31871e3a77f30c4a8e8bd594d17eb07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1769156602}
-  attackPoint: {fileID: 1758612769}
-  baseAtkDamage: 50
-  attackRange: 0
-  attackRate: 2
-  basicEnemyLayers:
-    serializedVersion: 2
-    m_Bits: 4096
 --- !u!114 &1769156606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,6 +766,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
 --- !u!114 &1769156608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769156599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95d122a0ad6c904f88bbac3b6193be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulseVal: 8
+  maskEnemies:
+    serializedVersion: 2
+    m_Bits: 4096
+  totalHp: 100
+  recoveryTime: 4
+  anim: {fileID: 1769156602}
+--- !u!114 &1769156609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

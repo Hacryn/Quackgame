@@ -18,12 +18,11 @@ public class DamageController : MonoBehaviour
     public int totalHp=100;
 
     //invulnerability time
-    public int recoveryTime=2;
+    public float recoveryTime=1f;
 
     private bool invincible=false;
     public Animator anim;
 
-    Vector3 lastVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +64,7 @@ public class DamageController : MonoBehaviour
         totalHp-=damageSource;
         spriteRen.color = Color.white;
         invincible = false;
-        Debug.Log("damage took");
+        Debug.Log("damage took" + damageSource);
         if (totalHp == 0)
             Death ();
     }

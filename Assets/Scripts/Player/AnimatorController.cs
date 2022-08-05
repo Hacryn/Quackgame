@@ -33,6 +33,7 @@ public class AnimatorController : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        
 
     }
 
@@ -61,7 +62,6 @@ public class AnimatorController : MonoBehaviour
         animator.SetFloat("speed",Mathf.Abs(Input.GetAxis("Horizontal")));
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log("salto riuscito");
             animator.SetBool("isJumping", true);
         }
    
