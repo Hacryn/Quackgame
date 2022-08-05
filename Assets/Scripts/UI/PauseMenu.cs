@@ -28,8 +28,8 @@ public class PauseMenu : MonoBehaviour
         foreach(Transform obj in transform)
         {
             obj.gameObject.SetActive(true);
-
         }
+
         Time.timeScale = 0;
     }
 
@@ -38,8 +38,8 @@ public class PauseMenu : MonoBehaviour
         foreach (Transform obj in transform)
         {
             obj.gameObject.SetActive(false);
-
         }
+
         Time.timeScale = 1;
     }
 }
