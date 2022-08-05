@@ -6,8 +6,10 @@ public class HealthPotion : PickUpItem
 {
     public float healingAmount;
 
-    public override void OnPickUp(GameObject player) 
+    public override bool OnPickUp(GameObject player) 
     {
+        if (player.GetComponent<PlayerCombat>().HasMaxHealth) return false;
         player.GetComponent<PlayerCombat>().Health += healingAmount;
+        return true;
     }
 }

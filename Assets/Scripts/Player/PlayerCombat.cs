@@ -26,6 +26,10 @@ public class PlayerCombat : MonoBehaviour
         }
         get => health;
     }
+    public bool HasMaxHealth
+    {
+        get => health == maxHealth;
+    }
 
     public float attackRange = 0.5f;
     public float attackRate = 2f;

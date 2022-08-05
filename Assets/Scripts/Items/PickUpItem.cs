@@ -11,10 +11,9 @@ public abstract class PickUpItem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            OnPickUp(collision.gameObject);
-            Destroy(gameObject);
+            if (OnPickUp(collision.gameObject)) Destroy(gameObject);
         }
     }
 
-    public abstract void OnPickUp(GameObject player);
+    public abstract bool OnPickUp(GameObject player);
 }
