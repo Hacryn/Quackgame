@@ -16,7 +16,7 @@ public class AnimatorController : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround; // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck; // A position marking where to check if the player is grounded.
 
-
+    
 
     public UnityEvent OnLandEvent;
 
