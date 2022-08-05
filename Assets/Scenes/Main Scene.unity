@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5564167549621585314, guid: 949481fde478800418c9a06f03c0491d, type: 3}
       propertyPath: text
-      value: ENRICO VERY BAD
+      value: PALMA IS VERY BAD & DUMB
       objectReference: {fileID: 0}
     - target: {fileID: 5564167549621585314, guid: 949481fde478800418c9a06f03c0491d, type: 3}
       propertyPath: oneshot
