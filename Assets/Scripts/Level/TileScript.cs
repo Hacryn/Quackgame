@@ -28,6 +28,7 @@ public class TileScript : MonoBehaviour
     {
         rng = new System.Random();
         SpawnEnemies();
+        SpawnExtra();
     }
 
     public virtual void SpawnEnemies() 
@@ -45,5 +46,7 @@ public class TileScript : MonoBehaviour
             spawnPoints.RemoveAt(spawnPoint);
         }
     }
+
+    public virtual void SpawnExtra() {}
 
 }
