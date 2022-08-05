@@ -19,11 +19,9 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             DialogueBox.DisplayDialogue(text, duration);
-        }
 
-        if (oneshot)
-        {
-            Destroy(gameObject);
+            if (oneshot)
+                Destroy(gameObject);
         }
     }
 }
