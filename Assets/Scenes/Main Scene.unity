@@ -303,7 +303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2264401686015794694, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
       propertyPath: health
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2264401686015794694, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
       propertyPath: HealthBar
@@ -2989,11 +2989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658781642929646139, guid: af75f23e8cfd6444097b908611f62df5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.927948
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 8658781642929646139, guid: af75f23e8cfd6444097b908611f62df5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0045035
+      value: 2.08
       objectReference: {fileID: 0}
     - target: {fileID: 8658781642929646139, guid: af75f23e8cfd6444097b908611f62df5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3097,11 +3097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658781642929646139, guid: 780e62f316fa21f46882faf8ba7f2f94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4460526
+      value: -8.07
       objectReference: {fileID: 0}
     - target: {fileID: 8658781642929646139, guid: 780e62f316fa21f46882faf8ba7f2f94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.030178
+      value: 3.09
       objectReference: {fileID: 0}
     - target: {fileID: 8658781642929646139, guid: 780e62f316fa21f46882faf8ba7f2f94, type: 3}
       propertyPath: m_LocalPosition.z
