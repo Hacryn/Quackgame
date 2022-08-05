@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1713786737050825022}
   - component: {fileID: 4963108605099254502}
   m_Layer: 0
-  m_Name: Green Potion TEST
+  m_Name: Green Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,6 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd5a1485a4e65c419b089685212f0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Red Potion
-  description: Increase HP by 25
+  objectName: Green Potion
+  description: Decrease HP by 25
   healingAmount: -25

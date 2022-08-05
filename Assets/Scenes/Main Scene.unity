@@ -3089,7 +3089,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8658781642929646086, guid: 780e62f316fa21f46882faf8ba7f2f94, type: 3}
       propertyPath: m_Name
-      value: Green Potion TEST
+      value: Green Potion
       objectReference: {fileID: 0}
     - target: {fileID: 8658781642929646139, guid: 780e62f316fa21f46882faf8ba7f2f94, type: 3}
       propertyPath: m_RootOrder

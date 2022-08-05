@@ -12,6 +12,21 @@ public class PlayerCombat : MonoBehaviour
 
     public float health = 100f;
     public float maxHealth = 100f;
+    public float Health 
+    {
+        set
+        {
+            if (value > maxHealth) health = maxHealth;
+            else if (value < 0) {
+                health = 0;
+                OnDeath();
+            } else {
+                health = value;
+            }
+        }
+        get => health;
+    }
+
     public float attackRange = 0.5f;
     public float attackRate = 2f;
 
@@ -56,4 +71,10 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log("you hit " + enemy.name);
         }
     }    
+
+    private void OnDeath() 
+    {
+        Debug.Log("Player died");
+    }
+
 }
