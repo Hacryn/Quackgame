@@ -18,9 +18,13 @@ public class TileScript : MonoBehaviour
         set { if (value >= 0) tilePosition = value; }
     }
     
-    public List<GameObject> spawnPoints;
+    public List<GameObject> enemySpawnPoints;
     public List<GameObject> enemyList;
-    public int numberOfSpawns;
+    public int numberOfEnemySpawns;
+
+    public List<GameObject> itemSpawnPoints;
+    public List<GameObject> itemList;
+    public int numberOfItemSpawns;
 
     protected System.Random rng;
 
@@ -28,6 +32,7 @@ public class TileScript : MonoBehaviour
     {
         rng = new System.Random();
         SpawnEnemies();
+        SpawnItems();
         SpawnExtra();
     }
 
@@ -36,14 +41,30 @@ public class TileScript : MonoBehaviour
         int spawnPoint;
         int enemy;
 
-        if (spawnPoints.Count == 0) return;
+        if (enemySpawnPoints.Count == 0) return;
         if (enemyList.Count == 0) return;
         
-        for (int i = 0; i < numberOfSpawns; i++) {
-            spawnPoint = rng.Next(0, spawnPoints.Count);
+        for (int i = 0; i < numberOfEnemySpawns; i++) {
+            spawnPoint = rng.Next(0, enemySpawnPoints.Count);
             enemy = rng.Next(0, enemyList.Count);
-            Instantiate(enemyList[enemy], spawnPoints[spawnPoint].transform.position, Quaternion.identity);
-            spawnPoints.RemoveAt(spawnPoint);
+            Instantiate(enemyList[enemy], enemySpawnPoints[spawnPoint].transform.position, Quaternion.identity);
+            enemySpawnPoints.RemoveAt(spawnPoint);
+        }
+    }
+
+    public virtual void SpawnItems()
+    {
+        int spawnPoint;
+        int item;
+        
+        if (itemSpawnPoints.Count == 0) return;
+        if (itemList.Count == 0) return;
+        
+        for (int i = 0; i < numberOfEnemySpawns; i++) {
+            spawnPoint = rng.Next(0, itemSpawnPoints.Count);
+            item = rng.Next(0, itemList.Count);
+            Instantiate(itemList[item], itemSpawnPoints[spawnPoint].transform.position, Quaternion.identity);
+            itemSpawnPoints.RemoveAt(spawnPoint);
         }
     }
 

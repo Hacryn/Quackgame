@@ -160,7 +160,7 @@ MonoBehaviour:
   - {fileID: 1347982495872260238, guid: a540efe706c933c41888fadb54290332, type: 3}
   continuousTiles:
   - {fileID: 8585801210924657088, guid: adde3bb99a850de40b51313eddd28a3a, type: 3}
-  continuousTilesChance: 100
+  continuousTilesChance: 0
   minTiles: 2
   maxTiles: 2
   tileSize: 10
