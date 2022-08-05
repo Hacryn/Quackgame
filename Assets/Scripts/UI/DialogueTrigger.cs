@@ -6,6 +6,8 @@ public class DialogueTrigger : MonoBehaviour
 {
     public string text;
     public int duration;
+    public bool oneshot;
+
     private DialogueBox DialogueBox;
     private void Start()
     {
@@ -17,6 +19,11 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             DialogueBox.DisplayDialogue(text, duration);
+        }
+
+        if (oneshot)
+        {
+            Destroy(gameObject);
         }
     }
 }

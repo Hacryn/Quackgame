@@ -61,6 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ad431275a574e4e813e04ac5290014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogBox: {fileID: 0}
-  Text: 
+  text: 
   duration: 0
+  oneshot: 0
