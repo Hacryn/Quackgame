@@ -31,40 +31,26 @@ public class TileScript : MonoBehaviour
     public virtual void Start()
     {
         rng = new System.Random();
-        SpawnEnemies();
-        SpawnItems();
+        // Spawn enemies
+        SpawnObjects(enemySpawnPoints, enemyList, numberOfEnemySpawns);
+        // Spawn items
+        SpawnObjects(itemSpawnPoints, itemList, numberOfItemSpawns);
         SpawnExtra();
     }
 
-    public virtual void SpawnEnemies() 
+    public virtual void SpawnObjects(List<GameObject> spawnPoints, List<GameObject> objectList, int spawns) 
     {
         int spawnPoint;
-        int enemy;
+        int obj;
 
-        if (enemySpawnPoints.Count == 0) return;
-        if (enemyList.Count == 0) return;
+        if (spawnPoints.Count == 0) return;
+        if (objectList.Count == 0) return;
         
-        for (int i = 0; i < numberOfEnemySpawns; i++) {
-            spawnPoint = rng.Next(0, enemySpawnPoints.Count);
-            enemy = rng.Next(0, enemyList.Count);
-            Instantiate(enemyList[enemy], enemySpawnPoints[spawnPoint].transform.position, Quaternion.identity);
-            enemySpawnPoints.RemoveAt(spawnPoint);
-        }
-    }
-
-    public virtual void SpawnItems()
-    {
-        int spawnPoint;
-        int item;
-        
-        if (itemSpawnPoints.Count == 0) return;
-        if (itemList.Count == 0) return;
-        
-        for (int i = 0; i < numberOfEnemySpawns; i++) {
-            spawnPoint = rng.Next(0, itemSpawnPoints.Count);
-            item = rng.Next(0, itemList.Count);
-            Instantiate(itemList[item], itemSpawnPoints[spawnPoint].transform.position, Quaternion.identity);
-            itemSpawnPoints.RemoveAt(spawnPoint);
+        for (int i = 0; i < spawns; i++) {
+            spawnPoint = rng.Next(0, spawnPoints.Count);
+            obj = rng.Next(0, objectList.Count);
+            Instantiate(objectList[obj], spawnPoints[spawnPoint].transform.position, Quaternion.identity);
+            spawnPoints.RemoveAt(spawnPoint);
         }
     }
 
