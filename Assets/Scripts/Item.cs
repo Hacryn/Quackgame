@@ -24,6 +24,7 @@ public class Item : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //Do something
-        }   
+            Destroy(gameObject);
+        }
     }
 }
