@@ -10,7 +10,8 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public int baseAtkDamage = 50;
 
-    
+    public float health = 100f;
+    public float maxHealth = 100f;
     public float attackRange = 0.5f;
     public float attackRate = 2f;
 
