@@ -70,16 +70,17 @@ public class LevelGenerator : MonoBehaviour
     private int CreateContinuousTiles(GameObject tilesObject, int pos) 
     {
         ContinuousTiles tileset = tilesObject.GetComponent<ContinuousTiles>();
-        
+        int startingPosition = pos;
+
         tileset.SetUp();
         while (!tileset.Ended()) {
-            CreateTile(tileset.NextTile(), pos);
+            CreateTile(tileset.NextTile(), pos, startingPosition, tileset.Length);
             pos += tileSize; 
         }
         return pos;
     }
 
-    private void CreateTile(GameObject tile, int pos)
+    private GameObject CreateTile(GameObject tile, int pos)
     {
         GameObject tileCreated;
         tileCreated = Instantiate(tile, new Vector3(pos, 0, 0), Quaternion.identity);
@@ -88,6 +89,17 @@ public class LevelGenerator : MonoBehaviour
             tileCreated.GetComponent<TileScript>().Position = pos;
         }
         tileCreated.transform.parent = gameObject.transform;
+        return tileCreated;
     }
+
+    private GameObject CreateTile(GameObject tile, int pos, int startingPosition, int length)
+    {
+        GameObject tileCreated = CreateTile(tile, pos);
+        if (tileCreated.GetComponent<ContinuousTileScript>() != null) {
+            tileCreated.GetComponent<ContinuousTileScript>().StartingPosition = startingPosition;
+            tileCreated.GetComponent<ContinuousTileScript>().Length = length;
+        }
+        return tileCreated;
+    } 
 
 }

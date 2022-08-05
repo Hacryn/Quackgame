@@ -22,15 +22,15 @@ public class TileScript : MonoBehaviour
     public List<GameObject> enemyList;
     public int numberOfSpawns;
 
-    private System.Random rng;
+    protected System.Random rng;
 
-    void Start()
+    public virtual void Start()
     {
         rng = new System.Random();
         SpawnEnemies();
     }
 
-    void SpawnEnemies() 
+    public virtual void SpawnEnemies() 
     {
         int spawnPoint;
         int enemy;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ContinuousTiles : MonoBehaviour
 {
     public int maxTiles;
+    public int Length { get => maxTiles; }
     public List<GameObject> startTiles;
     public List<GameObject> middleTiles;
     public List<GameObject> endTiles;
