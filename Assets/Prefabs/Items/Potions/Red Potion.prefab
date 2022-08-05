@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8658781642929646084}
   - component: {fileID: 8658781642929646085}
   - component: {fileID: -1713786737050825022}
-  - component: {fileID: 6094281140548860283}
+  - component: {fileID: 4963108605099254502}
   m_Layer: 0
   m_Name: Red Potion
   m_TagString: Untagged
@@ -123,7 +123,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.5}
   m_Size: {x: 0.7, y: 1}
   m_Direction: 0
---- !u!114 &6094281140548860283
+--- !u!114 &4963108605099254502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +132,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8658781642929646086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f9a450a6349ea40a061bc938e35702, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cd5a1485a4e65c419b089685212f0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Red Potion
-  description: Should Increase HP
+  description: Increase HP by 25
+  healingAmount: 25
