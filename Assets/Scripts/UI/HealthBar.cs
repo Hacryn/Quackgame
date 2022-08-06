@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    PlayerCombat player;
-    // Start is called before the first frame update
+    HealthTracker health;
+
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerCombat>();
+        health = GameObject.Find("Player").GetComponent<HealthTracker>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        GetComponent<Image>().fillAmount = player.health / player.maxHealth;
+        GetComponent<Image>().fillAmount = health.Value / health.Limit;
     }
 }
