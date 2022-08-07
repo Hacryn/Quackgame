@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class OnPassageTrigger : MonoBehaviour
 {
-    protected GameObject activator;
+    protected string activatorTag;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == activator)
+        if (collision.gameObject.CompareTag(activatorTag) )
         {
             OnPassage(collision.gameObject);
         }

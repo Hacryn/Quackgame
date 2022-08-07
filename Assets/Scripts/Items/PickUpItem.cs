@@ -15,7 +15,7 @@ public abstract class PickUpItem : OnPassageTrigger
 
     void Start()
     {
-        activator = GameObject.FindWithTag("Player");
+        activatorTag = "Player";
     }
 
     public abstract bool OnPickUp(GameObject player);

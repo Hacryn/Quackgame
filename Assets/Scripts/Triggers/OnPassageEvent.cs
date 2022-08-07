@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class OnPassageEvent : OnPassageTrigger
 {
-    public GameObject EventActivator;
+    public string selectedTag;
     public UnityEvent Event;
     public bool oneShot;
     public override void OnPassage(GameObject activator)
@@ -15,9 +15,8 @@ public class OnPassageEvent : OnPassageTrigger
             Destroy(gameObject);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        activator = EventActivator;
+        activatorTag = selectedTag;
     }
 }
