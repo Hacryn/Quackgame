@@ -12,9 +12,10 @@ public abstract class ResourceTracker : MonoBehaviour
     protected float resourceLimit;
     
     public string Name { get => resourceName; }
-    public virtual float Value { get => resourceValue; set => resourceValue = value; }
+    public abstract float Value { get; set; }
     public virtual float Limit { get => resourceLimit; set => resourceLimit = value; }
 
-    public bool HasLimit { get => resourceLimit != 0; }
-    public bool HasMaxValue { get => resourceValue >= resourceLimit; }
+    public abstract bool HasLimit { get; }
+    public bool HasMaxValue { get => (resourceValue >= resourceLimit) && HasLimit; }
+    
 }

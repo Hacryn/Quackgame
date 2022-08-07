@@ -21,9 +21,15 @@ public class HealthTracker : ResourceTracker
         get => resourceValue;
     }
 
-    void Start()
+    public override bool HasLimit { get => true; }
+    
+    void Reset()
     {
         resourceName = "Health";
+    }
+
+    void OnValidate() 
+    {
         resourceValue = resourceLimit;
     }
 
