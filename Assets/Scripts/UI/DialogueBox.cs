@@ -6,21 +6,33 @@ using TMPro;
 public class DialogueBox : MonoBehaviour
 {
     private TextMeshProUGUI textScript;
+    private DialogueManager dialogueManager;
 
     private void Start()
     {
         textScript = GetComponentInChildren<TextMeshProUGUI>(true);
+        dialogueManager = new DialogueManager();
     }
-    public void DisplayDialogue(string msg, int duration)
+    public void DisplayDialogue(string ID)
     {
-        foreach(Transform t in transform)
+        Dialogue dialogue = dialogueManager.DialogueList.Find(dialogue => dialogue.ID == ID);
+
+        if (dialogue != null)
         {
-            t.gameObject.SetActive(true);
+            foreach (Transform t in transform)
+            {
+                t.gameObject.SetActive(true);
+            }
+
+            textScript.text = dialogue.content;
+
+            Invoke(nameof(HideDialogue), dialogue.duration);
+
+        } else
+        {
+            Debug.Log("Dialogue " + ID + "not found.");
         }
-
-        textScript.text = msg;
-
-        Invoke(nameof(HideDialogue), duration);
+        
     }
 
     void HideDialogue()

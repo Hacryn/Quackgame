@@ -74,7 +74,7 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<Enemy>().takeDamage(baseAtkDamage);
             Debug.Log("you hit " + enemy.name);
         }
-    }    
+    }
 
     private void OnDeath() 
     {

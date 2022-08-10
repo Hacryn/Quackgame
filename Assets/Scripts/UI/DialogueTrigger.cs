@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : OnPassageTrigger
 {
-    public string text;
-    public int duration;
     public bool oneshot;
 
+    [Tooltip("A list of Dialogue IDs that will displayed, one after other.")]
+    public List<string> ids;
+
     private DialogueBox DialogueBox;
+
     private void Start()
     {
         DialogueBox = GameObject.Find("DialogueBox").GetComponent<DialogueBox>();
+        activatorTag = "Player";
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            DialogueBox.DisplayDialogue(text, duration);
 
-            if (oneshot)
-                Destroy(gameObject);
+
+    public override void OnPassage(GameObject activator)
+    {
+        foreach (string id in ids)
+        {
+            DialogueBox.DisplayDialogue(id);
         }
+
+        if (oneshot)
+            Destroy(gameObject);
     }
 }
