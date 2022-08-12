@@ -23,34 +23,35 @@ public class ShakeBehaviour : MonoBehaviour
     
     void Awake()
     {
-    if (transform == null)
-    {
-    transform = GetComponent(typeof(Transform)) as Transform;
-    }
+      if (transform == null)
+      {
+        transform = GetComponent(typeof(Transform)) as Transform;
+      }
     }
 
 
     void OnEnable()
     {
-    initialPosition = transform.localPosition;
+      initialPosition = transform.localPosition;
     }
 
     void Update()
     {
         if (shakeDuration > 0)
         {
-        transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+          transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
         
-        shakeDuration -= Time.deltaTime * dampingSpeed;
+          shakeDuration -= Time.deltaTime * dampingSpeed;
         }
         else
         {
-        shakeDuration = 0f;
-        transform.localPosition = initialPosition;
+          shakeDuration = 0f;
+          transform.localPosition = initialPosition;
         }
     }
 
-    public void TriggerShake() {
+    public void TriggerShake() 
+    {
       shakeDuration = 2.0f;
     }
 }
