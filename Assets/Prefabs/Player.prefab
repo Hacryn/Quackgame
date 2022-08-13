@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7061910224799416063}
   - component: {fileID: 7061910224799416062}
   - component: {fileID: 7061910224799416057}
+  - component: {fileID: 2943381317442311777}
   - component: {fileID: 7061910224799416061}
   - component: {fileID: 2264401686015794694}
   m_Layer: 0
@@ -157,6 +158,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2943381317442311777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061910224799416060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b3a006638e4db418963b919a77363f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceName: 
+  resourceValue: 0
+  resourceLimit: 100
 --- !u!114 &7061910224799416061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpHeight: 15
+  jumpingTollerance: 0.01
 --- !u!114 &2264401686015794694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 0}
   baseAtkDamage: 50
+  health: 100
+  maxHealth: 100
   attackRange: 0.5
   attackRate: 2
   basicEnemyLayers:
