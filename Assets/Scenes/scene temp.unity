@@ -614,8 +614,8 @@ GameObject:
   - component: {fileID: 1769156601}
   - component: {fileID: 1769156600}
   - component: {fileID: 1769156604}
-  - component: {fileID: 1769156607}
   - component: {fileID: 1769156606}
+  - component: {fileID: 1769156610}
   - component: {fileID: 1769156608}
   - component: {fileID: 1769156609}
   m_Layer: 0
@@ -748,23 +748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customName: Combat
---- !u!114 &1769156607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769156599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b56deda9fd8394ba703d82ca4ac424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitbox: {fileID: 1758612770}
-  Hiteffect: {fileID: 0}
-  EnemyLayers:
-    serializedVersion: 2
-    m_Bits: 4096
 --- !u!114 &1769156608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,6 +782,23 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
+--- !u!114 &1769156610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769156599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b56deda9fd8394ba703d82ca4ac424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitbox: {fileID: 1758612770}
+  Hiteffect: {fileID: 0}
+  EnemyLayers:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &1785426021
 GameObject:
   m_ObjectHideFlags: 0
