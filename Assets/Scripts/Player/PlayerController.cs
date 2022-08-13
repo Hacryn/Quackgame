@@ -16,41 +16,45 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float jumpingTollerance = 0.01f;
 
-    private Vector3 move;
+    [SerializeField]
+    private float rollPower = 5f;
 
+    [SerializeField]
+    private float rollTime = 0.6f;
+
+    [SerializeField]   
+    private float rollCooldown = 1f;
+
+    private Vector3 move;
     private Rigidbody2D body;
 
     private BoxCollider2D box;
     private CircleCollider2D circle;
 
-    //private SpriteRenderer sprite;
-
-    public Animator anim;
+    private AnimatorController animx;
+    
     private bool faceLeft;
 
     private bool canRoll=true;
-    private bool isRolling=false;
-    public float rollPower = 5f;
-    private float rollTime = 0.6f;    
-    private float rollCooldown = 1f;
 
-    // Start is called before the first frame update
+    private bool blockMovement;
+    public bool BlockMovement { set => blockMovement = value;}
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        //sprite = GetComponent<SpriteRenderer>();
         box = GetComponentInChildren<BoxCollider2D>();
         circle =  GetComponentInChildren<CircleCollider2D>();
         faceLeft = false;
+        animx = GetComponent<AnimatorController>();
+        blockMovement = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
-        if(isRolling){
-            return;
-        }
+        if(blockMovement) return;
+        
         float inputX = Input.GetAxis("Horizontal");
 
         if (!faceLeft && inputX < 0) {
@@ -73,26 +77,15 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(move);
 
-        /*if (Input.GetKeyDown(KeyCode.Space) && !jumping)
-        {
+        if (IsNotJumping() && Input.GetKeyDown(KeyCode.Space)) {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-            jumping = true;
-            speed.x = 15;
-        }*/
-
-        if (IsNotJumping(jumpingTollerance) && Input.GetKeyDown(KeyCode.Space)) {
-            body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            animx.Jump();
         }
 
          if (canRoll && Input.GetKeyDown(KeyCode.X)) {
-            anim.SetTrigger("isRolling");
-            StartCoroutine(roll());
+            animx.Roll();
+            StartCoroutine(Roll());
         }
-    }
-
-    void FixedUpdate()
-    {
-        
     }
 
     void FlipPlayer()
@@ -102,21 +95,16 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scale;
     }
 
-    /*private void OnCollisionEnter2D (Collision2D col)
-    {
-        if (col.gameObject.tag == "Ground")
-        { 
-            jumping = false;
-            speed.x = 20;
-        }
-    }*/
-
-    private bool IsNotJumping(float tollerance) {
-        return body.velocity.y < tollerance && body.velocity.y > -tollerance;
+    public bool IsNotJumping() {
+        return body.velocity.y < jumpingTollerance && body.velocity.y > -jumpingTollerance;
     }
 
-    private IEnumerator roll(){
-        isRolling=true;
+    public bool IsJumping() {
+        return body.velocity.y >= jumpingTollerance && body.velocity.y <= -jumpingTollerance;
+    }
+
+    public IEnumerator Roll(){
+        BlockMovement = true;
         canRoll=false;
         box.isTrigger=true;
         circle.isTrigger=true;
@@ -130,9 +118,9 @@ public class PlayerController : MonoBehaviour
         box.isTrigger=false;
         circle.isTrigger=false;
 
-        isRolling = false;
         yield return new WaitForSeconds(rollCooldown);
         canRoll=true;
+        BlockMovement = false;
     }
 
 }
