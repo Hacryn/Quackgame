@@ -7,14 +7,12 @@ public class AnimatorController : MonoBehaviour
 {
     
     public Animator animator;
-    private Rigidbody2D body;
-    private PlayerController move;
 
+    private PlayerController move;
     private bool wasGrounded;
 
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
         move = GetComponent<PlayerController>();
         wasGrounded = true;
     }
