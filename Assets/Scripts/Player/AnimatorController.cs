@@ -23,7 +23,7 @@ public class AnimatorController : MonoBehaviour
     {
         animator.SetFloat("speed",Mathf.Abs(Input.GetAxis("Horizontal")));
 
-        if (!wasGrounded && move.IsNotJumping()) {
+        if (!wasGrounded && !move.IsJumping()) {
             wasGrounded = true;
             Land();
         }

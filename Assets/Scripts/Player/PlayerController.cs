@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
     private bool canRoll=true;
 
     private bool blockMovement;
-    public bool BlockMovement { set => blockMovement = value;}
 
     void Start()
     {
@@ -54,7 +53,37 @@ public class PlayerController : MonoBehaviour
     {
 
         if(blockMovement) return;
-        
+
+        MovePlayer();
+
+        Jump();
+
+        Roll();
+    }
+
+    public bool IsJumping() {
+        return body.velocity.y >= jumpingTollerance || body.velocity.y <= -jumpingTollerance;
+    }
+
+    public void Bounce(GameObject obj, int impulse)
+    {
+        BlockMovement();
+        body.velocity = new Vector2((transform.position.x - obj.transform.position.x)* impulse, body.velocity.y);
+        Invoke("UnblockMovement", 0.3f);
+    }
+
+    public void BlockMovement() 
+    {
+        blockMovement = true;
+    }
+
+    public void UnblockMovement()
+    {
+        blockMovement = false;
+    }
+
+    private void MovePlayer()
+    {
         float inputX = Input.GetAxis("Horizontal");
 
         if (!faceLeft && inputX < 0) {
@@ -76,35 +105,34 @@ public class PlayerController : MonoBehaviour
         move *= Time.deltaTime;
 
         transform.Translate(move);
-
-        if (IsNotJumping() && Input.GetKeyDown(KeyCode.Space)) {
-            body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-            animx.Jump();
-        }
-
-         if (canRoll && Input.GetKeyDown(KeyCode.X)) {
-            animx.Roll();
-            StartCoroutine(Roll());
-        }
     }
 
-    void FlipPlayer()
+    private void FlipPlayer()
     {
         Vector3 scale = transform.localScale;
         scale.x = scale.x * -1;
         transform.localScale = scale;
     }
 
-    public bool IsNotJumping() {
-        return body.velocity.y < jumpingTollerance && body.velocity.y > -jumpingTollerance;
+    private void Jump()
+    {
+        if (!IsJumping() && Input.GetKeyDown(KeyCode.Space)) {
+            body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            animx.Jump();
+        }
     }
 
-    public bool IsJumping() {
-        return body.velocity.y >= jumpingTollerance && body.velocity.y <= -jumpingTollerance;
+    private void Roll()
+    {
+        if (canRoll && Input.GetKeyDown(KeyCode.X)) {
+            animx.Roll();
+            StartCoroutine(RollCoroutine());
+        }
     }
 
-    public IEnumerator Roll(){
-        BlockMovement = true;
+    private IEnumerator RollCoroutine()
+    {
+        BlockMovement();
         canRoll=false;
         box.isTrigger=true;
         circle.isTrigger=true;
@@ -112,7 +140,6 @@ public class PlayerController : MonoBehaviour
         float originalGravity = body.gravityScale;
         body.gravityScale = 0f;
         body.velocity = new Vector2(transform.localScale.x * rollPower, 0f);
-        //trail effect + other nifty stuff
         yield return new WaitForSeconds(rollTime);
         body.gravityScale = originalGravity;
         box.isTrigger=false;
@@ -120,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(rollCooldown);
         canRoll=true;
-        BlockMovement = false;
+        UnblockMovement();
     }
 
 }
