@@ -16,7 +16,7 @@ public class AnimatorController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         move = GetComponent<PlayerController>();
-        wasGrounded = move.IsJumping();
+        wasGrounded = true;
     }
 
     void Update()
