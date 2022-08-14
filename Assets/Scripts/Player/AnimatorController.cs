@@ -16,7 +16,7 @@ public class AnimatorController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         move = GetComponent<PlayerController>();
-        wasGrounded = true;
+        wasGrounded = move.IsJumping();
     }
 
     void Update()
@@ -24,7 +24,6 @@ public class AnimatorController : MonoBehaviour
         animator.SetFloat("speed",Mathf.Abs(Input.GetAxis("Horizontal")));
 
         if (!wasGrounded && !move.IsJumping()) {
-            wasGrounded = true;
             Land();
         }
    
@@ -37,6 +36,7 @@ public class AnimatorController : MonoBehaviour
 
     public void Land() {
         animator.SetBool("isJumping", false);
+        wasGrounded = true;
     }
 
     public void Roll() {
