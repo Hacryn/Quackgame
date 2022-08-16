@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HealthTracker : ResourceTracker
 {
+    private Animator anim;
+    private bool dead; 
+
     public override float Value
     {
         set
@@ -22,6 +25,11 @@ public class HealthTracker : ResourceTracker
     }
 
     public override bool HasLimit { get => true; }
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     
     void Reset()
     {
@@ -31,6 +39,24 @@ public class HealthTracker : ResourceTracker
     void OnValidate() 
     {
         resourceValue = resourceLimit;
+    }
+
+    void TakeDamage(float _damage)
+    {
+        resourceValue = Mathf.Clamp(resourceValue - _damage, 0, resourceLimit);
+
+        if(resourceValue > 0)
+        {
+            anim.SetTrigger("hurt");
+        }
+        else
+        {
+            if(!dead)
+            {
+                anim.SetTrigger("die");
+                dead = true;
+            }
+        }
     }
 
     void KillEntity() 
