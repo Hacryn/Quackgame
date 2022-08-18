@@ -306,6 +306,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1908923048, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2264401686015794694, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
       propertyPath: health
       value: 100
@@ -373,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 7061910224799416060, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061910224799416060, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
@@ -2768,7 +2776,8 @@ GameObject:
   - component: {fileID: 680814735}
   - component: {fileID: 680814734}
   - component: {fileID: 680814738}
-  - component: {fileID: 680814737}
+  - component: {fileID: 680814740}
+  - component: {fileID: 680814739}
   m_Layer: 12
   m_Name: Demon
   m_TagString: Enemy
@@ -2856,28 +2865,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680814733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.957, y: 0.915, z: 0.06295}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 8.05, y: 1.36, z: 0.06295}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &680814737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680814733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54b3a006638e4db418963b919a77363f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceName: Health
-  resourceValue: 3
-  resourceLimit: 3
 --- !u!61 &680814738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2904,6 +2898,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3821683, y: 0.5108043}
   m_EdgeRadius: 0
+--- !u!114 &680814739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680814733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e392205e9ef704fabddee5f1803746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 1
+  range: 1
+  colliderDistance: -0.5
+  damage: 2
+  boxCollider: {fileID: 680814738}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &680814740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680814733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4501fe6d4511a47b11af1593dd652b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
 --- !u!1 &704161298
 GameObject:
   m_ObjectHideFlags: 0
