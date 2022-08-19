@@ -16,9 +16,12 @@ public class Demon : MonoBehaviour
 
     //private DemonHealth playerHealth;
 
+    private DemonPatrol patrolling;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        patrolling = GetComponentInParent<DemonPatrol>();
     }
 
     private void Update()
@@ -34,6 +37,11 @@ public class Demon : MonoBehaviour
                 cooldownTimer = 0;
                 anim.SetTrigger("attack");
             }
+        }
+
+        if(patrolling != null)
+        {
+            patrolling.enabled = !PlayerInSight();
         }
     }
 
