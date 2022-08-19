@@ -15,6 +15,7 @@ public class DemonHealth : MonoBehaviour
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
     }
+    
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
