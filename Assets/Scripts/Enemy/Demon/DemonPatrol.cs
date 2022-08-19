@@ -78,7 +78,7 @@ public class DemonPatrol : MonoBehaviour
         anim.SetBool("moving", true);
 
         // Make enemy face direction
-        enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction, initScale.y, initScale.z);
+        enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction * -1, initScale.y, initScale.z);
 
         // Move in that direction
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed,
