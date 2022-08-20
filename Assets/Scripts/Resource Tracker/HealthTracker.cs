@@ -13,7 +13,6 @@ public class HealthTracker : ResourceTracker
             }
             else if (resourceValue < 0) {
                 resourceValue = 0;
-                KillEntity();
             } else {
                 resourceValue = value;
             }
@@ -31,11 +30,6 @@ public class HealthTracker : ResourceTracker
     void OnValidate() 
     {
         resourceValue = resourceLimit;
-    }
-
-    void KillEntity() 
-    {
-        Debug.Log(gameObject.name + " killed");
     }
 
 }
