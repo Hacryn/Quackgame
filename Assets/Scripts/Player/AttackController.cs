@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboCharacter : MonoBehaviour
+public class AttackController : MonoBehaviour
 {
 
     private StateMachine meleeStateMachine;
@@ -24,7 +24,7 @@ public class ComboCharacter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            meleeStateMachine.SetNextState(new GroundEntryState());
+            meleeStateMachine.SetNextState(new MeleeEntryState());
         }
     }
 }

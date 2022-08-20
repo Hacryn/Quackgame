@@ -5,72 +5,77 @@ using UnityEngine;
 public class DamageController : MonoBehaviour
 {
 
-    private Rigidbody2D rbody;
-    private BoxCollider2D box;
-    private CircleCollider2D circle;
-    private SpriteRenderer spriteRen;
-    public int impulseVal=8;
+     [SerializeField]
+    private int bounceForce=8;
+
+    [SerializeField]
     public LayerMask maskEnemies;
 
-    //public Transform prova=transform.GetChild(0);
+    [SerializeField]
+    private float recoveryTime;
 
-    //make it a global variable
-    public int totalHp=100;
+    [SerializeField]
+    private float bounceDamage;
 
-    //invulnerability time
-    public float recoveryTime=1f;
-
-    private bool invincible=false;
-    public Animator anim;
-
-
-    // Start is called before the first frame update
-    void Start()
+    // Use this to inflict damage to the player
+    public float Damage
     {
-        rbody = GetComponent<Rigidbody2D>();
-        box = GetComponentInChildren<BoxCollider2D>();
-        circle =  GetComponentInChildren<CircleCollider2D>();
-        spriteRen = GetComponentInChildren<SpriteRenderer>();
-        box.enabled=true;
-        circle.enabled=true;
-        spriteRen.enabled=true;
-   }
-
-    void Update(){
-
-    }
-
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-           Debug.Log("There is a collision");
-
-        if (( maskEnemies & (1 << collision.gameObject.layer)) != 0)
+        set 
         {
-            Debug.Log("you collided with an Enemy");
-            StartCoroutine(heroDamage(10, collision.gameObject));
+            if (value > 0) StartCoroutine(SetDamage(value));
+            else Debug.Log("Warning: Damage to the player cannot be equal or lower that 0");
         }
     }
 
-    IEnumerator heroDamage(int damageSource, GameObject colEnemy) {
+    private BoxCollider2D box;
+    private CircleCollider2D circle;
+    private SpriteRenderer spriteRen;
+    private PlayerController move;
+    private HealthTracker health;
+    private bool invincible;
+
+
+    void Start()
+    {
+        box = GetComponentInChildren<BoxCollider2D>();
+        circle =  GetComponentInChildren<CircleCollider2D>();
+        spriteRen = GetComponentInChildren<SpriteRenderer>();
+        move = GetComponent<PlayerController>();
+        health = GetComponent<HealthTracker>();
+        box.enabled=true;
+        circle.enabled=true;
+        spriteRen.enabled=true;
+        invincible = false;
+    }
+
+    void OnValidate() 
+    {
+        if (bounceDamage <= 0) bounceDamage = 10;
+        if (recoveryTime < 0) recoveryTime = 0.5f;
+    }
+
+    // Bounce back when player hits an enemy and take some damage
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (( maskEnemies & (1 << collision.gameObject.layer)) != 0)
+        {
+            move.Bounce(collision.gameObject, bounceForce);
+            StartCoroutine(SetDamage(bounceDamage));
+        }
+    }
+
+    // Set the amount of damage the player takes and set they invincible
+    private IEnumerator SetDamage(float damage) 
+    {
         if(invincible)
             yield break;
         invincible = true;
         spriteRen.color = Color.red;
-        rbody.velocity = new Vector2((transform.position.x - colEnemy.transform.position.x)* impulseVal, rbody.velocity.y);
-        
-        //delayspecified amount
         yield return new WaitForSeconds(recoveryTime);
-        totalHp-=damageSource;
+        if (health == null) Debug.Log("Warning: Player has no Health Tracker!");
+        else health.Value -= damage;
         spriteRen.color = Color.white;
         invincible = false;
-        Debug.Log("damage took" + damageSource);
-        if (totalHp == 0)
-            Death ();
-    }
-
-    void Death(){
-
     }
 
 }
