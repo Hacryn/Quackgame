@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float jumpingTollerance = 0.01f;
 
+    [SerializeField]
+    private AudioClip jumpSound;
+
     private Vector3 move;
 
     private Rigidbody2D body;
@@ -72,6 +75,11 @@ public class PlayerController : MonoBehaviour
         move *= Time.deltaTime;
 
         transform.Translate(move);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            SoundTracker.instance.PlaySound(jumpSound);
+        }
 
         /*if (Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
