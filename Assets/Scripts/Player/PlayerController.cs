@@ -29,8 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]   
     private float rollCooldown = 0.5f;
-
-    private Vector3 move;
+    
     private Rigidbody2D body;
 
     private BoxCollider2D box;
