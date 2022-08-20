@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public float jumpingTollerance = 0.01f;
 
     [SerializeField]
+    private AudioClip jumpSound;
+
+    private Vector3 move;
+    
+    [SerializeField]
     private float rollPower = 5f;
 
     [SerializeField]
@@ -119,6 +124,7 @@ public class PlayerController : MonoBehaviour
         if (!IsJumping() && Input.GetKeyDown(KeyCode.Space)) {
             body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
             animx.Jump();
+            SoundTracker.instance.PlaySound(jumpSound);
         }
     }
 
