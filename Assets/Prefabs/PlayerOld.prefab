@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7061910224799416061}
   - component: {fileID: 2264401686015794694}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerOld
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceName: 
-  resourceValue: 0
+  resourceValue: 100
   resourceLimit: 100
 --- !u!114 &7061910224799416061
 MonoBehaviour:
@@ -188,6 +188,9 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 15
   jumpingTollerance: 0.01
+  rollPower: 5
+  rollTime: 0.3
+  rollCooldown: 0.5
 --- !u!114 &2264401686015794694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31871e3a77f30c4a8e8bd594d17eb07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   attackPoint: {fileID: 0}
   baseAtkDamage: 50
   health: 100

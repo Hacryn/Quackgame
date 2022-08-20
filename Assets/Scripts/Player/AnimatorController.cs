@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class AnimatorController : MonoBehaviour
 {
     
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
 
     private PlayerController move;
     private bool wasGrounded;
@@ -19,7 +20,7 @@ public class AnimatorController : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("speed",Mathf.Abs(Input.GetAxis("Horizontal")));
+        animator.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
 
         if (!wasGrounded && !move.IsJumping()) {
             Land();

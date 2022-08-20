@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
     private float rollPower = 5f;
 
     [SerializeField]
-    private float rollTime = 0.6f;
+    private float rollTime = 0.3f;
 
     [SerializeField]   
-    private float rollCooldown = 1f;
+    private float rollCooldown = 0.5f;
 
     private Vector3 move;
     private Rigidbody2D body;

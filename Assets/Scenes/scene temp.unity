@@ -640,9 +640,9 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 15
   jumpingTollerance: 0.01
-  rollPower: 8
-  rollTime: 0.6
-  rollCooldown: 1
+  rollPower: 5
+  rollTime: 0.3
+  rollCooldown: 0.5
 --- !u!50 &1769156601
 Rigidbody2D:
   serializedVersion: 4

@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 1489151962}
+    - target: {fileID: 2264401686015794694, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 162080391}
     - target: {fileID: 2943381317442311777, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
       propertyPath: resourceLimit
       value: 100
@@ -367,6 +371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
+--- !u!4 &162080391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1908923049, guid: 787fa7d4f304c2c489c54dbb1a5771a9, type: 3}
+  m_PrefabInstance: {fileID: 162080390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &238119961
 GameObject:
   m_ObjectHideFlags: 0
