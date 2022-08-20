@@ -7,7 +7,7 @@ public class ShakeBehaviour : MonoBehaviour
 
 
     // Transform of the GameObject you want to shake
-    private Transform transform;
+    private new Transform transform;
     
     // Desired duration of the shake effect
     private float shakeDuration = 0f;
