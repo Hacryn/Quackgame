@@ -9,6 +9,7 @@ public class Demon : MonoBehaviour
     [SerializeField] private float colliderDistance;
     [SerializeField] private int damage;
     [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float timeHurt;
     private float cooldownTimer = Mathf.Infinity;
@@ -53,7 +54,7 @@ public class Demon : MonoBehaviour
         {
             if(cooldownTimer >= attackCooldown)
             {
-                Attack();
+                //Attack();
                 cooldownTimer = 0;
                 anim.SetTrigger("attack");
             }
@@ -89,9 +90,21 @@ public class Demon : MonoBehaviour
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
-    private void Attack()
+    public void Attack()
     {
-       
+        Collider2D [] player = new Collider2D[10];
+        List<Collider2D> damaged = new List<Collider2D>();
+        int collision = PhysicsScene2D.OverlapCollider(hitBox, player, playerLayer);
+
+        for (int i = 0; i < collision; i++) {
+            if (!damaged.Contains(player[i])) {
+                player[i].gameObject.
+                GetComponentInParent<DamageController>().Damage = 25;
+                Debug.Log(gameObject.name + "has hit player");
+                damaged.Add(player[i]);
+            }
+        }
+
     }
 
     private IEnumerator ShowDamageCoroutine(float time)

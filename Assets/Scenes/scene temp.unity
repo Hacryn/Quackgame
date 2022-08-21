@@ -130,17 +130,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2250559883883356637, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4512882260857172224, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
       propertyPath: m_Name
       value: DemonPatrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512882260857172224, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4512882260857172226, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
       propertyPath: m_RootOrder
@@ -185,26 +177,6 @@ PrefabInstance:
     - target: {fileID: 4512882260857172226, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512882261393173435, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512882261842496199, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512882261873471044, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512882262441011631, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
-      propertyPath: timeHurt
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806422828807628598, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e44f138fbf38c4298e0e9c1cc72858, type: 3}
@@ -476,17 +448,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5481538520775357505, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5481538520792640467, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_Name
       value: Sinner
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481538520792640467, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5481538520792640479, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_RootOrder
@@ -531,14 +495,6 @@ PrefabInstance:
     - target: {fileID: 5481538520792640479, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481538520792642596, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
-      propertyPath: bounceForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481538520792642598, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
-      propertyPath: baseDamage
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}

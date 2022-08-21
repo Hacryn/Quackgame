@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DamageController : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class DamageController : MonoBehaviour
 
     [SerializeField]
     private float bounceDamage;
+
+    [SerializeField]
+    private string baseLevel;
 
     // Use this to inflict damage to the player
     public float Damage
@@ -64,6 +68,11 @@ public class DamageController : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        SceneManager.LoadScene(baseLevel, LoadSceneMode.Single);
+    }
+
     // Set the amount of damage the player takes and set they invincible
     private IEnumerator SetDamage(float damage) 
     {
@@ -74,6 +83,7 @@ public class DamageController : MonoBehaviour
         yield return new WaitForSeconds(recoveryTime);
         if (health == null) Debug.Log("Warning: Player has no Health Tracker!");
         else health.Value -= damage;
+        if (health.Value == 0) Die();
         spriteRen.color = Color.white;
         invincible = false;
     }
