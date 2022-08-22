@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
 
 public class DialogueBox : MonoBehaviour
 {
@@ -11,19 +12,24 @@ public class DialogueBox : MonoBehaviour
     {
         textScript = GetComponentInChildren<TextMeshProUGUI>(true);
     }
-    public void DisplayDialogue(string msg, int duration)
+    public void DisplayDialogue(Dialogue dialogue)
     {
-        foreach(Transform t in transform)
+        if (dialogue != null)
         {
-            t.gameObject.SetActive(true);
+            foreach (Transform t in transform)
+            {
+                t.gameObject.SetActive(true);
+            }
+
+            textScript.text = dialogue.content;
+        } else
+        {
+            Debug.Log("Dialogue " + dialogue.ID + "not found.");
         }
-
-        textScript.text = msg;
-
-        Invoke(nameof(HideDialogue), duration);
+        
     }
 
-    void HideDialogue()
+    public void HideDialogue()
     {
         foreach (Transform t in transform)
         {
