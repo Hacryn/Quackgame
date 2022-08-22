@@ -24,6 +24,7 @@ public class MeleeBaseState : State
 
     public LayerMask basicEnemyLayers;
 
+    private float damage;
 
     // Input buffer Timer
     private float AttackPressedTimer = 0;
@@ -36,7 +37,7 @@ public class MeleeBaseState : State
         hitCollider = GetComponent<AttackController>().hitbox;
         HitEffectPrefab = GetComponent<AttackController>().Hiteffect;
         basicEnemyLayers = GetComponent<AttackController>().EnemyLayers;
-
+        damage = GetComponent<AttackController>().Damage;
     }
 
     public override void OnUpdate()
@@ -46,7 +47,6 @@ public class MeleeBaseState : State
 
         if (animator.GetFloat("Weapon.Active") > 0f)
         {
-            //Debug.Log("you're attacking:");
             Attack();
         }
 
@@ -73,15 +73,14 @@ public class MeleeBaseState : State
         ContactFilter2D filter = new ContactFilter2D();
         filter.useTriggers = true;
         int colliderCount = PhysicsScene2D.OverlapCollider(hitCollider, collidersToDamage, basicEnemyLayers);
-        //Debug.Log(colliderCount);
         for (int i = 0; i < colliderCount; i++)
         {
 
             if (!collidersDamaged.Contains(collidersToDamage[i]))
             {
-                //GameObject.Instantiate(HitEffectPrefab, collidersToDamage[i].transform);
-                collidersToDamage[i].GetComponent<Enemy>().takeDamage(50);
-                Debug.Log("Enemy Has Taken:" + attackIndex + "Damage");
+                GameObject enemy = collidersToDamage[i].gameObject;
+                enemy.GetComponent<Demon>().Damage = damage;
+                Debug.Log(enemy.name + "has taken:" + damage + "points of damage");
                 collidersDamaged.Add(collidersToDamage[i]);
             }
         }

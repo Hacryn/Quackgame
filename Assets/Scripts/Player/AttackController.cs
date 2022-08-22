@@ -7,6 +7,11 @@ public class AttackController : MonoBehaviour
 
     private StateMachine meleeStateMachine;
 
+    [SerializeField]
+    private float baseDamage;
+
+    public float Damage { get => baseDamage; }
+
     [SerializeField] public Collider2D hitbox;
     [SerializeField] public GameObject Hiteffect;
     [SerializeField] public LayerMask EnemyLayers;

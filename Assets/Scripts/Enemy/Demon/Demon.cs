@@ -9,10 +9,30 @@ public class Demon : MonoBehaviour
     [SerializeField] private float colliderDistance;
     [SerializeField] private int damage;
     [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private float timeHurt;
     private float cooldownTimer = Mathf.Infinity;
 
     private Animator anim;
+
+    private HealthTracker health;
+
+    public float Damage
+    {
+        set 
+        {
+            health.Value -= value;
+
+            if (health.Value == 0) {
+                anim.SetTrigger("die");
+                gameObject.SetActive(false);
+            } else {
+                anim.SetTrigger("hurt");
+                StartCoroutine(ShowDamageCoroutine(timeHurt));
+            }
+        }
+    }
 
     //private DemonHealth playerHealth;         vita del giocatore
 
@@ -21,6 +41,7 @@ public class Demon : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        health = GetComponent<HealthTracker>();
         patrolling = GetComponentInParent<DemonPatrol>();
     }
 
@@ -33,7 +54,7 @@ public class Demon : MonoBehaviour
         {
             if(cooldownTimer >= attackCooldown)
             {
-                // Attack
+                //Attack();
                 cooldownTimer = 0;
                 anim.SetTrigger("attack");
             }
@@ -69,15 +90,27 @@ public class Demon : MonoBehaviour
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
-/*  ATTENZIONE: QUESTA FUNZIONE È QUELLA CHE EFFETTIVAMENTE DANNEGGIA IL PLAYER E VA INSERITA NELL'ANIMAZIONE "Attack"
-
-    private void DamagePlayer()
+    public void Attack()
     {
-        if(PlayerInSight())
-        {
-            // Damage player Health
-            playerHealth.TakeDamage(damage);
+        Collider2D [] player = new Collider2D[10];
+        List<Collider2D> damaged = new List<Collider2D>();
+        int collision = PhysicsScene2D.OverlapCollider(hitBox, player, playerLayer);
+
+        for (int i = 0; i < collision; i++) {
+            if (!damaged.Contains(player[i])) {
+                player[i].gameObject.
+                GetComponentInParent<DamageController>().Damage = 25;
+                Debug.Log(gameObject.name + "has hit player");
+                damaged.Add(player[i]);
+            }
         }
+
     }
-*/
+
+    private IEnumerator ShowDamageCoroutine(float time)
+    {
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(time);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    }
 }
