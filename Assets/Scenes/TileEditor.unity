@@ -175,6 +175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5564167549621585314, guid: 949481fde478800418c9a06f03c0491d, type: 3}
+      propertyPath: oneshot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564167549621585314, guid: 949481fde478800418c9a06f03c0491d, type: 3}
       propertyPath: DialogueFile
       value: 1_welcome.csv
       objectReference: {fileID: 0}
@@ -362,7 +366,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5481538520792640467, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_Name
-      value: Sinner
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5481538520792640479, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_RootOrder
