@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
 
 public class DialogueBox : MonoBehaviour
 {
     private TextMeshProUGUI textScript;
-    private DialogueManager dialogueManager;
 
     private void Start()
     {
         textScript = GetComponentInChildren<TextMeshProUGUI>(true);
-        dialogueManager = new DialogueManager();
     }
-    public void DisplayDialogue(string ID)
+    public void DisplayDialogue(Dialogue dialogue)
     {
-        Dialogue dialogue = dialogueManager.DialogueList.Find(dialogue => dialogue.ID == ID);
-
         if (dialogue != null)
         {
             foreach (Transform t in transform)
@@ -25,17 +22,14 @@ public class DialogueBox : MonoBehaviour
             }
 
             textScript.text = dialogue.content;
-
-            Invoke(nameof(HideDialogue), dialogue.duration);
-
         } else
         {
-            Debug.Log("Dialogue " + ID + "not found.");
+            Debug.Log("Dialogue " + dialogue.ID + "not found.");
         }
         
     }
 
-    void HideDialogue()
+    public void HideDialogue()
     {
         foreach (Transform t in transform)
         {

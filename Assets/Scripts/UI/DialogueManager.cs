@@ -1,12 +1,14 @@
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine;
+
 public class DialogueManager
 {
     public List<Dialogue> DialogueList { get; }
-    public DialogueManager()
+    public DialogueManager(string file)
     {
         //We should iterate every file inside the Dialogue directory and then concatenate it to DialogueList.
-        DialogueList = ParseDialoguefile(@"C:\Users\giann\Progetti\Quackgame\Assets\Dialogue\dialogotest.csv");
+        DialogueList = ParseDialoguefile(Path.Combine(Application.dataPath, "Dialogue", file));
     }
 
     private List<Dialogue> ParseDialoguefile(string path) 
