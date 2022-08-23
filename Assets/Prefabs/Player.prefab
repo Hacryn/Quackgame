@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 2759511339536829464}
   - component: {fileID: 5481538520792642597}
   m_Layer: 9
-  m_Name: Sinner
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
