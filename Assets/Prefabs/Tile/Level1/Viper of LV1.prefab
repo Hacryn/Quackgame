@@ -368,7 +368,8 @@ MonoBehaviour:
   itemSpawnPoints:
   - {fileID: 6180266223737104222}
   - {fileID: 6180266224352159586}
-  itemList: []
+  itemList:
+  - {fileID: 8658781642929646086, guid: af75f23e8cfd6444097b908611f62df5, type: 3}
   numberOfItemSpawns: 1
 --- !u!1 &6180266223737104222
 GameObject:

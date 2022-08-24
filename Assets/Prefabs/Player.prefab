@@ -133,7 +133,7 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 15
   jumpingTollerance: 0.01
-  jumpSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: ed8906464c755254d9a1153eac12474c, type: 3}
   rollPower: 5
   rollTime: 0.3
   rollCooldown: 0.5
@@ -448,7 +448,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.01616317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -459,7 +459,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5448976, y: 0.7645148}
+  m_Size: {x: 0.5448976, y: 0.73218846}
   m_EdgeRadius: 0
 --- !u!58 &5481538522280049225
 CircleCollider2D:

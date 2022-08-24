@@ -8,8 +8,8 @@ public class HealthPotion : PickUpItem
 
     public override bool OnPickUp(GameObject player) 
     {
-        if (player.GetComponent<HealthTracker>().HasMaxValue && healingAmount > 0) return false;
-        player.GetComponent<HealthTracker>().Value += healingAmount;
+        if (player.GetComponentInParent<HealthTracker>().HasMaxValue && healingAmount > 0) return false;
+        player.GetComponentInParent<HealthTracker>().Value += healingAmount;
         return true;
     }
 }
