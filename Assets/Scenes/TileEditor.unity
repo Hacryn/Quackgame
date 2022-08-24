@@ -241,6 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followedTransform: {fileID: 761009547}
+  offsetX: 0
+  offsetY: 0
 --- !u!1 &1140461695
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 2845886478438987421, guid: 7f15e761a4a26294584401c9dee55295, type: 3}
       propertyPath: m_Name
       value: End of LV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845886478438987421, guid: 7f15e761a4a26294584401c9dee55295, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8270498203934500853, guid: 7f15e761a4a26294584401c9dee55295, type: 3}
       propertyPath: m_RootOrder

@@ -4,28 +4,49 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {   
-    public GameObject starterTile;
-    public List<GameObject> tileList;
-    public List<GameObject> endTiles;
+    [Header("Level Generation")]
 
-    public List<GameObject> continuousTiles;
-    public int continuousTilesChance;
+    [SerializeField] private GameObject starterTile;
+    [SerializeField] private List<GameObject> tileList;
+    [SerializeField] private List<GameObject> endTiles;
+    [SerializeField] private List<GameObject> continuousTiles;
+    [SerializeField] private int continuousTilesChance;
 
-    public int minTiles;
-    public int maxTiles;
-    public int tileSize;
-    private int length;
+    [Header("Tile informations")]
+    [SerializeField] private int minTiles;
+    [SerializeField] private int maxTiles;
+    [SerializeField] private int tileSize;
+    [SerializeField] private int length;
+
+    [Header("Player")]
+
+    [SerializeField] private int maxDeptness;
 
     private System.Random rng;
+    private GameObject player;
 
-    // Start is called before the first frame update
     void Start()
     {
         rng = new System.Random();
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
         GenerateLength();
         PlaceStarterTile();
         PlaceTiles();
         PlaceEndTile();
+    }
+
+    void Update()
+    {
+        if (player.transform.position.y < maxDeptness) {
+            player.GetComponent<DamageController>().Die();
+        }
+    }
+
+    void OnValidate()
+    {
+        if (maxDeptness >= 0) {
+            maxDeptness = -100;
+        }
     }
 
     private void GenerateLength()

@@ -307,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481538520792640479, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.990141
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5481538520792640479, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_LocalRotation.w
@@ -336,6 +336,10 @@ PrefabInstance:
     - target: {fileID: 5481538520792640479, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481538520792642596, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
+      propertyPath: baseLevel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
@@ -438,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followedTransform: {fileID: 26231796}
   offsetX: 0
-  offsetY: -2
+  offsetY: -1
 --- !u!1 &1525462543
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +486,8 @@ MonoBehaviour:
   minTiles: 5
   maxTiles: 10
   tileSize: 20
+  length: 0
+  maxDeptness: -100
 --- !u!156049354 &1525462545
 Grid:
   m_ObjectHideFlags: 0
