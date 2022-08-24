@@ -12,6 +12,7 @@ public class Demon : MonoBehaviour
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private float timeHurt;
+    [SerializeField] private GameObject loot;
     private float cooldownTimer = Mathf.Infinity;
 
     private Animator anim;
@@ -26,6 +27,7 @@ public class Demon : MonoBehaviour
 
             if (health.Value == 0) {
                 anim.SetTrigger("die");
+                OnDeath();
                 gameObject.SetActive(false);
             } else {
                 anim.SetTrigger("hurt");
@@ -43,6 +45,11 @@ public class Demon : MonoBehaviour
         anim = GetComponent<Animator>();
         health = GetComponent<HealthTracker>();
         patrolling = GetComponentInParent<DemonPatrol>();
+    }
+
+    private void OnDeath() 
+    {
+        Instantiate(loot, gameObject.transform.position, Quaternion.identity);
     }
 
     private void Update()

@@ -385,6 +385,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   timeHurt: 0.2
+  loot: {fileID: 2851663621567748814, guid: be9581c74f478c743990f38a56eecb05, type: 3}
 --- !u!114 &1283984938209922890
 MonoBehaviour:
   m_ObjectHideFlags: 0
