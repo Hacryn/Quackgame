@@ -391,6 +391,7 @@ MonoBehaviour:
   - {fileID: 5479794402679940824}
   itemList:
   - {fileID: 8658781642929646086, guid: af75f23e8cfd6444097b908611f62df5, type: 3}
+  - {fileID: 2851663621567748814, guid: be9581c74f478c743990f38a56eecb05, type: 3}
   numberOfItemSpawns: 1
 --- !u!1 &5479794402679940824
 GameObject:
