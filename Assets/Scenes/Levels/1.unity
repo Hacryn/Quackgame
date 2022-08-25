@@ -582,8 +582,9 @@ MonoBehaviour:
   - {fileID: 2382093577821454171, guid: f3b64c4a4e1ba034e8802f75b2c74d99, type: 3}
   endTiles:
   - {fileID: 2845886478438987421, guid: 7f15e761a4a26294584401c9dee55295, type: 3}
-  continuousTiles: []
-  continuousTilesChance: 0
+  continuousTiles:
+  - {fileID: 9135974708337989261, guid: 0c7ed9a74b193e04fa7965b7cf625762, type: 3}
+  continuousTilesChance: 10
   minTiles: 5
   maxTiles: 10
   tileSize: 20
