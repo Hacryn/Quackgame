@@ -496,5 +496,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5481538520792642598, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 4727600428538302852, guid: b97b51503e272a44ca8209afddc088dd, type: 3}
+    - target: {fileID: 5481538520792642598, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
+      propertyPath: skill1.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481538520792642598, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
+      propertyPath: skill1.Array.data[0]
+      value: 
+      objectReference: {fileID: 5683195178715926037, guid: dcffaa8cddbfb3d41a04c2e223996b95, type: 3}
+    - target: {fileID: 5481538520815651076, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}

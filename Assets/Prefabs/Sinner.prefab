@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &355745112270633474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804400143103918961}
+  m_Layer: 9
+  m_Name: projectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804400143103918961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355745112270633474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.836, y: -0.936, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5481538520792640479}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5481538520775357505
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +105,7 @@ Transform:
   - {fileID: 5481538521709234392}
   - {fileID: 5481538520775357506}
   - {fileID: 5481538520815651077}
+  - {fileID: 1804400143103918961}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,6 +213,14 @@ MonoBehaviour:
   EnemyLayers:
     serializedVersion: 2
     m_Bits: 4096
+  projectile: {fileID: 4727600428538302852, guid: b97b51503e272a44ca8209afddc088dd, type: 3}
+  shotPoint: {fileID: 1804400143103918961}
+  facedDirection: {fileID: 5481538520792640479}
+  StartTimeAttack: 2
+  skill1: []
+  skill2: []
+  skill3: []
+  skill4: []
 --- !u!114 &5481538520792642596
 MonoBehaviour:
   m_ObjectHideFlags: 0
