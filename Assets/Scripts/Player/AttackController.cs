@@ -37,7 +37,14 @@ public class AttackController : MonoBehaviour
     void Start()
     {
         meleeStateMachine = GetComponent<StateMachine>();
+    }
 
+    void OnValidate() 
+    {
+        skill1 = new GameObject[5];
+        skill2 = new GameObject[5];
+        skill3 = new GameObject[5];
+        skill4 = new GameObject[5];
     }
 
     // Update is called once per frame
@@ -57,9 +64,9 @@ public class AttackController : MonoBehaviour
             meleeStateMachine.SetNextState(new RangedEntryState());
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad0) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            if(skill1.Length > 0){
+            if(skill1[0] != null){
                 buttonPressed = 1;
                 Debug.Log("skill 0 fired");
                 meleeStateMachine.SetNextState(new SkillEntryState());
@@ -69,9 +76,9 @@ public class AttackController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            if(skill2.Length > 0){
+            if(skill2[0] != null){
                 Debug.Log("skill 1 fired");
                 buttonPressed = 2;
                 meleeStateMachine.SetNextState(new SkillEntryState());
@@ -81,9 +88,9 @@ public class AttackController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad2) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            if(skill3.Length > 0){
+            if(skill3[0] != null){
                 Debug.Log("skill 3 fired");
                 buttonPressed = 3;
                 meleeStateMachine.SetNextState(new SkillEntryState());
@@ -93,9 +100,9 @@ public class AttackController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad3) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            if(skill4.Length > 0){
+            if(skill4[0] != null){
                 Debug.Log("skill 4 fired");
                 buttonPressed = 4;
                 meleeStateMachine.SetNextState(new SkillEntryState());
