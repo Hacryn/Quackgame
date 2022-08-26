@@ -3,28 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 class MarketManager : MonoBehaviour
 {
-    private GameObject MarketUI;
+    private GameObject player;
     private void Start()
     {
-        MarketUI = GameObject.FindWithTag("Market");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void CloseInterface()
     {
-        MarketUI.SetActive(false);
+        gameObject.SetActive(false);
         Time.timeScale = 1;
     }
     
     public void BuyPotion()
     {
-        HealthPotion potion = new()
+        if(player.GetComponent<ResourceTracker>().Value >= 25)
         {
-            healingAmount = 25
-        };
-        potion.Use(GameObject.FindGameObjectWithTag("Player"));
+            HealthPotion potion = new()
+            {
+                healingAmount = 25
+            };
+            potion.Use(player);
+        }
     }
 }

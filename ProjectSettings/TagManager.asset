@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Dialogue
   - Market
+  - MarketMoneyCounter
   layers:
   - Default
   - TransparentFX
