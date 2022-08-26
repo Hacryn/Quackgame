@@ -54,7 +54,7 @@ public class AttackController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Z) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            meleeStateMachine.SetNextState(new GroundEntryState());
+            meleeStateMachine.SetNextState(new MeleeEntryState());
         }
 
         if (Input.GetKeyDown(KeyCode.C) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
