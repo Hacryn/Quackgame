@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b56deda9fd8394ba703d82ca4ac424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 50
+  baseDamage: 35
   hitbox: {fileID: 5481538520815651078}
   Hiteffect: {fileID: 0}
   EnemyLayers:
@@ -217,10 +217,14 @@ MonoBehaviour:
   shotPoint: {fileID: 1804400143103918961}
   facedDirection: {fileID: 5481538520792640479}
   StartTimeAttack: 2
-  skill1: []
-  skill2: []
-  skill3: []
-  skill4: []
+  skill1:
+  - {fileID: 0}
+  skill2:
+  - {fileID: 0}
+  skill3:
+  - {fileID: 0}
+  skill4:
+  - {fileID: 0}
   buttonPressed: -1
 --- !u!114 &5481538520792642596
 MonoBehaviour:
@@ -240,7 +244,7 @@ MonoBehaviour:
     m_Bits: 4096
   recoveryTime: 0.5
   bounceDamage: 10
-  baseLevel: scene temp
+  baseLevel: 1
 --- !u!114 &5201626086630449777
 MonoBehaviour:
   m_ObjectHideFlags: 0
