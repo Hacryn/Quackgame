@@ -59,31 +59,50 @@ public class AttackController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad0) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            buttonPressed = 1;
-            Debug.Log("skill 0 fired");
-            meleeStateMachine.SetNextState(new SkillEntryState());
+            if(skill1.Length > 0){
+                buttonPressed = 1;
+                Debug.Log("skill 0 fired");
+                meleeStateMachine.SetNextState(new SkillEntryState());
+            }
+            else {
+                //play error sound
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Keypad1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            Debug.Log("skill 1 fired");
-            buttonPressed = 2;
-            meleeStateMachine.SetNextState(new SkillEntryState());
-
+            if(skill2.Length > 0){
+                Debug.Log("skill 1 fired");
+                buttonPressed = 2;
+                meleeStateMachine.SetNextState(new SkillEntryState());
+            }
+            else {
+                //play error sound
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Keypad2) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            Debug.Log("skill 3 fired");
-            buttonPressed = 3;
-            meleeStateMachine.SetNextState(new SkillEntryState());
+            if(skill3.Length > 0){
+                Debug.Log("skill 3 fired");
+                buttonPressed = 3;
+                meleeStateMachine.SetNextState(new SkillEntryState());
+            }
+            else {
+                //play error sound
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Keypad3) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
-            Debug.Log("skill 4 fired");
-            buttonPressed = 4;
-            meleeStateMachine.SetNextState(new SkillEntryState());
+            if(skill4.Length > 0){
+                Debug.Log("skill 4 fired");
+                buttonPressed = 4;
+                meleeStateMachine.SetNextState(new SkillEntryState());
+            }
+            else {
+                //play error sound
+            }
         }
     }
 
