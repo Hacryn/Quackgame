@@ -12,6 +12,8 @@ class MarketManager : MonoBehaviour
     private GameObject player;
     private CurrencyTracker coins;
     private CurrencyTracker souls;
+    [SerializeField]
+    private TextMeshProUGUI warningText;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -30,12 +32,14 @@ class MarketManager : MonoBehaviour
 
     public void CloseInterface()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); 
+        warningText.SetText("");
         Time.timeScale = 1;
     }
     
     public void BuyPotion()
     {
+        warningText.SetText("");
         if(coins.Value >= 25 )
         {
             HealthPotion potion = new()
@@ -43,8 +47,17 @@ class MarketManager : MonoBehaviour
                 healingAmount = 25
             };
 
-            if(potion.Use(player))
+            if (potion.Use(player))
+            {
                 coins.Value -= 25;
+            }
+            else
+            {
+                warningText.SetText("Hai già abbastanza salute!");
+            }
+        } else
+        {
+            warningText.SetText("Non hai monete a sufficienza!");
         }
     }
 }
