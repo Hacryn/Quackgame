@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    public Transform followedTransform;
+    [SerializeField]
+    private Transform followedTransform;
+
+    [SerializeField]
+    private int offsetX;
+
+    [SerializeField]
+    private int offsetY;
 
     void Update()
     {
-        this.transform.position = new Vector3(followedTransform.position.x, followedTransform.position.y, this.transform.position.z);
+        this.transform.position = 
+        new Vector3(followedTransform.position.x + offsetX, 
+        followedTransform.position.y + offsetY, 
+        this.transform.position.z);
     }
 }

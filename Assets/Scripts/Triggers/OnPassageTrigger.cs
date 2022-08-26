@@ -8,9 +8,11 @@ public abstract class OnPassageTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(activatorTag) )
-        {
+        if (collision.gameObject.CompareTag(activatorTag) ) {
             OnPassage(collision.gameObject);
+        }
+        if (activatorTag == "") {
+            Debug.Log(gameObject.name + " has empty activator tag");
         }
     }
 
