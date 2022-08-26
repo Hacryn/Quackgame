@@ -16,22 +16,24 @@ public class DialogueTrigger : OnPassageTrigger
     private DialogueManager dialogueManager;
     private DialogueBox DialogueBox;
 
+    private bool shooted;
+
     private void Start()
     {
         DialogueBox = GameObject.Find("DialogueBox").GetComponent<DialogueBox>();
         activatorTag = "Player";
         dialogueManager = new DialogueManager(DialogueFile);
+        shooted = false;
     }
 
 
 
     public override void OnPassage(GameObject activator)
     {
-
-        StartCoroutine(StartDialogue());
-
-        if (oneshot)
-            Destroy(gameObject);
+        if (!shooted) {
+            shooted = true;
+            StartCoroutine(StartDialogue());
+        }   
     }
 
     public IEnumerator StartDialogue()
@@ -44,5 +46,7 @@ public class DialogueTrigger : OnPassageTrigger
             yield return new WaitForSeconds(dialogue.duration);
             DialogueBox.HideDialogue();
         }
+        if (oneshot) { Destroy(gameObject); }
+        shooted = false;
     }
 }
