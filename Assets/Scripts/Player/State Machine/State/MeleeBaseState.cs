@@ -79,7 +79,9 @@ public class MeleeBaseState : State
             if (!collidersDamaged.Contains(collidersToDamage[i]))
             {
                 GameObject enemy = collidersToDamage[i].gameObject;
-                enemy.GetComponent<Demon>().Damage = damage;
+                if (enemy.GetComponent<Demon>() != null) {
+                    enemy.GetComponent<Demon>().Damage = damage;
+                }
                 Debug.Log(enemy.name + "has taken:" + damage + "points of damage");
                 collidersDamaged.Add(collidersToDamage[i]);
             }
