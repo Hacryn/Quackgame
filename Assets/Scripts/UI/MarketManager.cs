@@ -10,9 +10,22 @@ using UnityEngine.UI;
 class MarketManager : MonoBehaviour
 {
     private GameObject player;
+    private CurrencyTracker coins;
+    private CurrencyTracker souls;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        foreach (CurrencyTracker tracker in player.GetComponents<CurrencyTracker>())
+        {
+            if (tracker.Name.Equals("Coin"))
+            {
+                coins = tracker;
+            }
+            else if(tracker.Name.Equals("Soul"))
+            {
+                souls = tracker;
+            }
+        }
     }
 
     public void CloseInterface()
@@ -23,13 +36,15 @@ class MarketManager : MonoBehaviour
     
     public void BuyPotion()
     {
-        if(player.GetComponent<ResourceTracker>().Value >= 25)
+        if(coins.Value >= 25 )
         {
             HealthPotion potion = new()
             {
                 healingAmount = 25
             };
-            potion.Use(player);
+
+            if(potion.Use(player))
+                coins.Value -= 25;
         }
     }
 }
