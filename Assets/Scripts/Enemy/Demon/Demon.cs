@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class Demon : MonoBehaviour
 {
-    [SerializeField] private float attackCooldown;
-    [SerializeField] private float range;
-    [SerializeField] private float colliderDistance;
-    [SerializeField] private int damage;
-    [SerializeField] private BoxCollider2D boxCollider;
-    [SerializeField] private BoxCollider2D hitBox;
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private float timeHurt;
-    [SerializeField] private GameObject loot;
-    private float cooldownTimer = Mathf.Infinity;
+    [SerializeField] protected float attackCooldown;
+    [SerializeField] protected float range;
+    [SerializeField] protected float colliderDistance;
+    [SerializeField] protected int damage;
+    [SerializeField] protected BoxCollider2D boxCollider;
+    [SerializeField] protected BoxCollider2D hitBox;
+    [SerializeField] protected LayerMask playerLayer;
+    [SerializeField] protected float timeHurt;
+    [SerializeField] protected GameObject loot;
+    protected float cooldownTimer = Mathf.Infinity;
 
-    private Animator anim;
+    protected Animator anim;
 
-    private HealthTracker health;
+    protected HealthTracker health;
 
-    public float Damage
+    public virtual float Damage
     {
         set 
         {
             health.Value -= value;
 
-            if (health.Value == 0) {
+            if (health.Value <= 0) {
                 anim.SetTrigger("die");
                 OnDeath();
-                gameObject.SetActive(false);
             } else {
                 anim.SetTrigger("hurt");
                 StartCoroutine(ShowDamageCoroutine(timeHurt));
@@ -38,21 +37,25 @@ public class Demon : MonoBehaviour
 
     //private DemonHealth playerHealth;         vita del giocatore
 
-    private DemonPatrol patrolling;
+    protected DemonPatrol patrolling;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
         health = GetComponent<HealthTracker>();
         patrolling = GetComponentInParent<DemonPatrol>();
     }
 
-    private void OnDeath() 
+    protected virtual void OnDeath() 
     {
-        Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+        Debug.Log(gameObject.name + " died");
+        if (loot != null) {
+            Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+        }
+        gameObject.SetActive(false);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         cooldownTimer += Time.deltaTime;
 
@@ -75,7 +78,7 @@ public class Demon : MonoBehaviour
     }
 
     // Function that see if the player is in the range of the enemy
-    private bool PlayerInSight()
+    protected virtual bool PlayerInSight()
     {
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, 
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 
@@ -90,14 +93,14 @@ public class Demon : MonoBehaviour
     }
 
     // Function that visualize the area where the enemy attacks
-    private void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         Collider2D [] player = new Collider2D[10];
         List<Collider2D> damaged = new List<Collider2D>();
@@ -114,7 +117,7 @@ public class Demon : MonoBehaviour
 
     }
 
-    private IEnumerator ShowDamageCoroutine(float time)
+    protected virtual IEnumerator ShowDamageCoroutine(float time)
     {
         GetComponentInChildren<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(time);

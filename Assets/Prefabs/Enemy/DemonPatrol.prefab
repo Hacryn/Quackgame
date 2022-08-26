@@ -378,7 +378,7 @@ MonoBehaviour:
   attackCooldown: 1
   range: 1
   colliderDistance: -0.5
-  damage: 2
+  damage: 25
   boxCollider: {fileID: 4512882261393173429}
   hitBox: {fileID: 3194441102663200846}
   playerLayer:
