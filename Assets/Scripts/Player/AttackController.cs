@@ -10,7 +10,7 @@ public class AttackController : MonoBehaviour
     [SerializeField]
     private float baseDamage;
 
-    public float Damage { get => baseDamage; }
+    public float Damage { get => baseDamage; set => baseDamage = value; }
 
     [SerializeField] public Collider2D hitbox;
     [SerializeField] public GameObject Hiteffect;

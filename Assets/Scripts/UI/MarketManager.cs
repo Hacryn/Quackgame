@@ -14,6 +14,12 @@ class MarketManager : MonoBehaviour
     private CurrencyTracker souls;
     [SerializeField]
     private TextMeshProUGUI warningText;
+    [SerializeField]
+    private GameObject fireball;
+    [SerializeField]
+    private GameObject lifesteal;
+
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -57,7 +63,67 @@ class MarketManager : MonoBehaviour
             }
         } else
         {
-            warningText.SetText("Non hai monete a sufficienza!");
+            warningText.SetText("Non hai risorse a sufficienza!");
+        }
+    }
+
+    public void BuyFireball()
+    {
+        warningText.SetText("");
+        if (player.GetComponent<AttackController>().skill1[0] != null)
+        {
+            warningText.SetText("Conosci già questa spell!");
+        }
+        else
+        if (souls.Value < 5 || coins.Value < 50)
+        {
+            warningText.SetText("Non hai risorse a sufficienza!");
+        }
+        else
+        {
+            player.GetComponent<AttackController>().skill1[0] = fireball;
+            souls.Value -= 5;
+            coins.Value -= 50;
+        }
+    }
+
+    public void BuyLifeSteal()
+    {
+        warningText.SetText("");
+        if (player.GetComponent<AttackController>().skill2[0] != null)
+        {
+            warningText.SetText("Conosci già questa spell!");
+        }
+        else
+        if (souls.Value < 10 || coins.Value < 100)
+        {
+            warningText.SetText("Non hai risorse a sufficienza!");
+        }
+        else
+        {
+            player.GetComponent<AttackController>().skill2[0] = lifesteal;
+            souls.Value -= 10;
+            coins.Value -= 100;
+        }
+    }
+
+    public void BuyGreatSword()
+    {
+        warningText.SetText("");
+        if (player.GetComponent<AttackController>().Damage == 50)
+        {
+            warningText.SetText("Possiedi già questo item!");
+        }
+        else
+        if (coins.Value < 50)
+        {
+            warningText.SetText("Non hai risorse a sufficienza!");
+        }
+        else
+        {
+            player.GetComponent<AttackController>().Damage = 50;
+            coins.Value -= 50;
+            warningText.SetText("Danno aumentato!");
         }
     }
 }
