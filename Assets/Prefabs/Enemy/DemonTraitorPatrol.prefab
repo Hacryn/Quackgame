@@ -159,7 +159,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   timeHurt: 0.2
-  loot: {fileID: 0}
+  loot: {fileID: 6687399190701830678, guid: ab115f6963dad01449f9e1adf6ce381a, type: 3}
 --- !u!114 &386136370830478559
 MonoBehaviour:
   m_ObjectHideFlags: 0

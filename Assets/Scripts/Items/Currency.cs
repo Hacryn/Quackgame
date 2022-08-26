@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : PickUpItem
+public class Currency : PickUpItem
 {
 
-    [SerializeField] private int coins;
+    [SerializeField] private string currencyName;
+    [SerializeField] private int currencyValue;
 
    public override bool OnPickUp(GameObject player)
    {
         foreach (CurrencyTracker component 
         in player.GetComponentsInParent<CurrencyTracker>()) {
-            if (component.Name == "Coin") {
-                component.Value += coins;
+            if (component.Name == currencyName) {
+                component.Value += currencyValue;
                 return true;
             }
         }
