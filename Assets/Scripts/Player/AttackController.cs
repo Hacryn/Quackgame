@@ -57,7 +57,7 @@ public class AttackController : MonoBehaviour
             meleeStateMachine.SetNextState(new RangedEntryState());
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        if (Input.GetKeyDown(KeyCode.Keypad0) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
             buttonPressed = 1;
             Debug.Log("skill 0 fired");
