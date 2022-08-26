@@ -68,7 +68,7 @@ public class DamageController : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         SceneManager.LoadScene(baseLevel, LoadSceneMode.Single);
     }
