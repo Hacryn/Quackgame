@@ -26,7 +26,7 @@ public class PowerGiver : PickUpItem
         if (soul == null) { Debug.Log("Non sono riuscuto a prendere soul");}
 
         if (coin != null && soul != null) {
-            if (coin.Value >= 10 && soul.Value >= 1) {
+            if (coin.Value >= 50 && soul.Value >= 1) {
                 player.GetComponentInParent<AttackController>().skill1[0] = spell;
                 portal.SetActive(true);
                 dialogue1.SetActive(true);
