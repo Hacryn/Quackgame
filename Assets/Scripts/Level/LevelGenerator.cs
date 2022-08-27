@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {   
-    [Header("Level Generation")]
+    [Header("Level Generation settings")]
 
+    [SerializeField] private bool generateLevel;
     [SerializeField] private GameObject starterTile;
     [SerializeField] private List<GameObject> tileList;
     [SerializeField] private List<GameObject> endTiles;
     [SerializeField] private List<GameObject> continuousTiles;
     [SerializeField] private int continuousTilesChance;
 
-    [Header("Tile informations")]
+    [Header("Tile parameters")]
     [SerializeField] private int minTiles;
     [SerializeField] private int maxTiles;
     [SerializeField] private int tileSize;
     [SerializeField] private int length;
 
-    [Header("Player")]
+    [Header("Player tracker")]
 
     [SerializeField] private int maxDeptness;
 
@@ -29,10 +30,12 @@ public class LevelGenerator : MonoBehaviour
     {
         rng = new System.Random();
         player = GameObject.FindGameObjectsWithTag("Player")[0];
-        GenerateLength();
-        PlaceStarterTile();
-        PlaceTiles();
-        PlaceEndTile();
+        if (generateLevel) {
+            GenerateLength();
+            PlaceStarterTile();
+            PlaceTiles();
+            PlaceEndTile();
+        }
     }
 
     void Update()
