@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -90,6 +90,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -3600,8 +3612,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tile-Atlas 16x16_96: -657219188
-      Tile-Atlas 16x16_141: 283116597
+      Tile-Atlas 16x16_14: 135604900
+      Tile-Atlas 16x16_24: 688373738
       Tile-Atlas 16x16_153: 1695389857
       Tile-Atlas 16x16_160: 567490604
       Tile-Atlas 16x16_108: 2130026403
@@ -3674,10 +3686,10 @@ TextureImporter:
       Tile-Atlas 16x16_72: -1942571948
       Tile-Atlas 16x16_154: 974188333
       Tile-Atlas 16x16_163: 773599878
+      Tile-Atlas 16x16_162: -1538313988
       Tile-Atlas 16x16_119: 1216225512
       Tile-Atlas 16x16_82: -1166446416
       Tile-Atlas 16x16_128: 1380988522
-      Tile-Atlas 16x16_162: -1538313988
       Tile-Atlas 16x16_151: -1347381242
       Tile-Atlas 16x16_147: 1628988628
       Tile-Atlas 16x16_31: -912914029
@@ -3763,9 +3775,9 @@ TextureImporter:
       Tile-Atlas 16x16_53: -685796887
       Tile-Atlas 16x16_99: 2088401282
       Tile-Atlas 16x16_124: -930721632
-      Tile-Atlas 16x16_14: 135604900
-      Tile-Atlas 16x16_24: 688373738
+      Tile-Atlas 16x16_96: -657219188
       Tile-Atlas 16x16_113: -37940658
+      Tile-Atlas 16x16_141: 283116597
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
