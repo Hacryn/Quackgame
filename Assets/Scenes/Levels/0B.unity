@@ -9109,6 +9109,7 @@ MonoBehaviour:
   tileSize: 0
   length: 0
   maxDeptness: -100
+  player: {fileID: 1684151319}
 --- !u!1001 &1684151318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9174,6 +9175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
+--- !u!1 &1684151319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5481538520792640467, guid: c217b3e4e85de9d4ea65e7b5df827b54, type: 3}
+  m_PrefabInstance: {fileID: 1684151318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1894766159
 PrefabInstance:
   m_ObjectHideFlags: 0
