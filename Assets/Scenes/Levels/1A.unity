@@ -514,14 +514,16 @@ MonoBehaviour:
   - {fileID: 4931527926279347079, guid: eca9fc0c8d2f5fe4c89e2fcf4768b222, type: 3}
   - {fileID: 6180266223150842617, guid: 5054959a8b88f394f9029aa613bd6841, type: 3}
   - {fileID: 2382093577821454171, guid: f3b64c4a4e1ba034e8802f75b2c74d99, type: 3}
+  - {fileID: 5182290237048511072, guid: 8b1cc36cc8f21ec45961ba9ea0b54abd, type: 3}
+  - {fileID: 4931527926279347079, guid: f05d4418e11d3fc409f312029a0972ec, type: 3}
   endTiles:
   - {fileID: 2845886478438987421, guid: 7f15e761a4a26294584401c9dee55295, type: 3}
   continuousTiles:
   - {fileID: 9135974708337989261, guid: 0c7ed9a74b193e04fa7965b7cf625762, type: 3}
   continuousTilesChance: 10
-  minTiles: 5
-  maxTiles: 15
-  tileSize: 30
+  minTiles: 10
+  maxTiles: 20
+  tileSize: 20
   length: 0
   player: {fileID: 1195578715}
   maxDeptness: -100
