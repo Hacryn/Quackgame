@@ -11,7 +11,7 @@ public class RangedBaseAttack : RangedBaseState
         //Attack
         //attackIndex = 3;
         duration = 0.5f;
-        //animator.SetTrigger("Attack" + attackIndex);
+        animator.SetTrigger("RangedAttack");
         Debug.Log("Ranged Attack " + " Fired!");
     }
 

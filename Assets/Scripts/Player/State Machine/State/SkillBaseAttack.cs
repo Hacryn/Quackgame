@@ -11,7 +11,7 @@ public class SkillBaseAttack : SkillBaseState
         //Attack
         //attackIndex = 3;
         duration = 0.5f;
-        //animator.SetTrigger("Attack" + attackIndex);
+        animator.SetTrigger("Casting");
         Debug.Log("Ranged Attack " + " Fired!");
     }
 
