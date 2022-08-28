@@ -22,7 +22,7 @@ class MarketManager : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
         foreach (CurrencyTracker tracker in player.GetComponents<CurrencyTracker>())
         {
             if (tracker.Name.Equals("Coin"))
