@@ -27,8 +27,10 @@ public class LifeStealP : MonoBehaviour {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
         if (hitInfo.collider != null) {
                 GameObject enemy = hitInfo.collider.gameObject;
+                GameObject player = GameObject.Find("Player");
                 enemy.GetComponent<Demon>().Damage = damage;
                 Debug.Log(enemy.name + "has taken:" + damage + "points of damage");
+                player.GetComponent<HealthTracker>().Value += damage;
                 DestroyProjectile(); 
         }
         transform.Translate(Vector2.right * gameObject.transform.localScale.x * speed * Time.deltaTime);
