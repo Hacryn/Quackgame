@@ -8,10 +8,10 @@ public class Camera : MonoBehaviour
     private Transform followedTransform;
 
     [SerializeField]
-    private int offsetX;
+    private float offsetX;
 
     [SerializeField]
-    private int offsetY;
+    private float offsetY;
 
     void Update()
     {
