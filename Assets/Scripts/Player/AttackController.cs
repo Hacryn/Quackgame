@@ -57,6 +57,14 @@ public class AttackController : MonoBehaviour
             meleeStateMachine.SetNextState(new MeleeEntryState());
         }
 
+        if (Input.GetKeyDown(KeyCode.C)){
+            Debug.Log("Button C was pressed");
+        }
+
+        Debug.Log(meleeStateMachine.CurrentState.GetType());
+
+        Debug.Log(typeof(IdleCombatState));
+
         if (Input.GetKeyDown(KeyCode.C) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
              Debug.Log("ranged fired");
