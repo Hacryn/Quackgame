@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
-        health = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthTracker>();
+        health = GameObject.Find("Player").GetComponent<HealthTracker>();
     }
 
     void Update()

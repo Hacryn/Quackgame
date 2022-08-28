@@ -10,7 +10,7 @@ public class ResourceCounter : MonoBehaviour
     public string resource;
     void Start()
     {
-        foreach (CurrencyTracker tracker in GameObject.FindGameObjectWithTag("Player").GetComponents<CurrencyTracker>())
+        foreach (CurrencyTracker tracker in GameObject.Find("Player").GetComponents<CurrencyTracker>())
         {
             if (tracker.Name.Equals(resource))
             {
