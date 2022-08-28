@@ -56,6 +56,7 @@ class MarketManager : MonoBehaviour
             if (potion.Use(player))
             {
                 coins.Value -= 25;
+                warningText.SetText("Acquisto effettuato!");
             }
             else
             {
@@ -75,15 +76,16 @@ class MarketManager : MonoBehaviour
             warningText.SetText("Conosci già questa spell!");
         }
         else
-        if (souls.Value < 5 || coins.Value < 50)
+        if (souls.Value < 1 || coins.Value < 10)
         {
             warningText.SetText("Non hai risorse a sufficienza!");
         }
         else
         {
             player.GetComponent<AttackController>().skill1[0] = fireball;
-            souls.Value -= 5;
-            coins.Value -= 50;
+            souls.Value -= 1;
+            coins.Value -= 10;
+            warningText.SetText("Acquisto effettuato!");
         }
     }
 
@@ -95,15 +97,16 @@ class MarketManager : MonoBehaviour
             warningText.SetText("Conosci già questa spell!");
         }
         else
-        if (souls.Value < 10 || coins.Value < 100)
+        if (souls.Value < 2 || coins.Value < 20)
         {
             warningText.SetText("Non hai risorse a sufficienza!");
         }
         else
         {
             player.GetComponent<AttackController>().skill2[0] = lifesteal;
-            souls.Value -= 10;
-            coins.Value -= 100;
+            souls.Value -= 2;
+            coins.Value -= 20;
+            warningText.SetText("Acquisto effettuato!");
         }
     }
 
