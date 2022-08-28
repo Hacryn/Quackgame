@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
 
     [SerializeField] private bool generateLevel;
     [SerializeField] private GameObject starterTile;
+    [SerializeField] private GameObject middleTile;
     [SerializeField] private List<GameObject> tileList;
     [SerializeField] private List<GameObject> endTiles;
     [SerializeField] private List<GameObject> continuousTiles;
@@ -20,15 +21,17 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int length;
 
     [Header("Player tracker")]
-
+    [SerializeField] private GameObject player;
     [SerializeField] private int maxDeptness;
 
     private System.Random rng;
-    [SerializeField] private GameObject player;
+
+    private bool middlePlaced;
 
     void Start()
     {
         rng = new System.Random();
+        middlePlaced = false;
         if (generateLevel) {
             GenerateLength();
             PlaceStarterTile();
@@ -68,18 +71,24 @@ public class LevelGenerator : MonoBehaviour
         
         pos = tileSize;
         while (pos < (length * tileSize)) {
-            if ((rng.Next(0,100) < continuousTilesChance) 
-                && (continuousTiles.Count > 0)) {
-                tile = rng.Next(0, continuousTiles.Count);
-                pos = CreateContinuousTiles(continuousTiles[tile], pos);
-                continuousTiles.RemoveAt(tile);
-
-                if (pos > (length * tileSize)) length = pos / tileSize;
-
-            } else {
-                tile = rng.Next(0, tileList.Count);
-                CreateTile(tileList[tile], pos);
+            if ((pos >= ((length * tileSize) / 2)) && !middlePlaced) {
+                CreateTile(middleTile, pos);
+                middlePlaced = true;
                 pos += tileSize;
+            } else {
+                if ((rng.Next(0,100) < continuousTilesChance) 
+                && (continuousTiles.Count > 0)) {
+                    tile = rng.Next(0, continuousTiles.Count);
+                    pos = CreateContinuousTiles(continuousTiles[tile], pos);
+                    continuousTiles.RemoveAt(tile);
+
+                    if (pos > (length * tileSize)) length = pos / tileSize;
+
+                } else {
+                    tile = rng.Next(0, tileList.Count);
+                    CreateTile(tileList[tile], pos);
+                    pos += tileSize;
+                }
             }
         }
     }
