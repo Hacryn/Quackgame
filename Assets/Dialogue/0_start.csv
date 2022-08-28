@@ -1,8 +1,8 @@
 Prima linea ignorata perché Palma non sa parsare un commento...
-1;1;Ma cosa sta succedendo?
-2;1;Sembrano dei suoni di battaglia...
+1;2;Ma cosa sta succedendo?
+2;2;Sembrano dei suoni di battaglia...
 3;2;Che cos'è? Una luce? Forse posso approfittarne per fuggire!
-4;1;Premi <Barra Spaziatrice> per saltare
+4;2;Premi <Barra Spaziatrice> per saltare
 5;3;Uhm c'è un demone-guardia morto...beh non credo che gli servirà la sua spada e i suoi pugnali
 6;2;Premi <Z> per sferrare un attacco ravvicinato
 7;2;Premi <C> per sferrare un attacco da distanza
