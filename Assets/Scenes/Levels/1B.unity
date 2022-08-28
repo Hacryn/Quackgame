@@ -235,6 +235,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8440427590241012962, guid: 720ad414d952cbb44b20899af6874e1f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0005493164
+      objectReference: {fileID: 0}
     - target: {fileID: 8440427591092115162, guid: 720ad414d952cbb44b20899af6874e1f, type: 3}
       propertyPath: m_Name
       value: Hud
@@ -335,6 +339,10 @@ PrefabInstance:
     - target: {fileID: 1799822195949919, guid: b6f5859631b4fdc49aa2dbd48222c09f, type: 3}
       propertyPath: m_Name
       value: MarketUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263824197038958423, guid: b6f5859631b4fdc49aa2dbd48222c09f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.48999
       objectReference: {fileID: 0}
     - target: {fileID: 3901818736051066012, guid: b6f5859631b4fdc49aa2dbd48222c09f, type: 3}
       propertyPath: m_RootOrder
@@ -674,6 +682,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5662351709184793986, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662351710302559128, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662351710302559129, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662351710302559129, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000015259
+      objectReference: {fileID: 0}
     - target: {fileID: 5662351710773265216, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -761,6 +785,10 @@ PrefabInstance:
     - target: {fileID: 5662351710773265223, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266057751701289931, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
+      propertyPath: m_Name
+      value: PausaInterface
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2c316215d4887b4b892d7a259acc08e, type: 3}
