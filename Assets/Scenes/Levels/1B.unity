@@ -612,6 +612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateLevel: 1
   starterTile: {fileID: 7277520946048434510, guid: 4e042f701ee339344acbf289b82ca6c8, type: 3}
+  middleTile: {fileID: 8985369984686435302, guid: 2829649075f759643b988d2700017ff2, type: 3}
   tileList:
   - {fileID: 5479794401759045101, guid: b825367a7fa33e1489b8da95211b6c9b, type: 3}
   - {fileID: 5182290237048511072, guid: 51726ec1d12d3a34ba050aac5ca15948, type: 3}
@@ -624,11 +625,11 @@ MonoBehaviour:
   - {fileID: 9135974708337989261, guid: 0c7ed9a74b193e04fa7965b7cf625762, type: 3}
   continuousTilesChance: 10
   minTiles: 5
-  maxTiles: 10
-  tileSize: 20
+  maxTiles: 15
+  tileSize: 30
   length: 0
-  maxDeptness: -100
   player: {fileID: 1195578715}
+  maxDeptness: -100
 --- !u!156049354 &1525462545
 Grid:
   m_ObjectHideFlags: 0
