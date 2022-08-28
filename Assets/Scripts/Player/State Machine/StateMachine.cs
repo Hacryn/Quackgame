@@ -59,13 +59,6 @@ public class StateMachine : MonoBehaviour
 
     private void Awake()
     {
-        SetNextStateToMain();
-
-    }
-
-
-    private void OnValidate()
-    {
         if (mainStateType == null)
         {
             if (customName == "Combat")
@@ -73,5 +66,7 @@ public class StateMachine : MonoBehaviour
                 mainStateType = new IdleCombatState();
             }
         }
+        SetNextStateToMain();
+
     }
 }

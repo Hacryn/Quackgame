@@ -1,0 +1,9 @@
+Bravo Palma, hai accettato la vendita della tua anima
+1;2;"Ottima scelta!"
+2;4;"Allora vedi quel demone un po' strano? Ecco quello è un traditore"
+3;4;"Sono riuscito a catturarlo e se riesci ad sconfiggerlo potrai prendere la sua anima"
+4;5;"In cambio della sua anima (e un po' di conio, qui siamo tutti avidi) ti presterò la mia FIREBALL"
+5;4;"Mi spiace, ma non puoi andare da questa parte se non facciamo lo scambio";
+6;3;"SI SI PERFETTO! Eccoti come promesso il mio potere"
+7;4;Hai scambiato 50 monete e 1 anima per Fireball (Spell di 1° livello)
+8;3;Premi <1> per attivare il potere di primo livello
