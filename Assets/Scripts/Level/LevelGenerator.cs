@@ -24,12 +24,11 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private int maxDeptness;
 
     private System.Random rng;
-    private GameObject player;
+    [SerializeField] private GameObject player;
 
     void Start()
     {
         rng = new System.Random();
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
         if (generateLevel) {
             GenerateLength();
             PlaceStarterTile();
